@@ -1,0 +1,12 @@
+﻿<NUnitProject>
+  <Settings activeconfig="Debug" />
+
+  <Config name="Debug" binpathtype="Auto" >
+    <assembly path="bin\Debug\Kraken.Framework.TestMonkey.Tests.dll" />
+  </Config>
+
+  <Config name="Release" binpathtype="Auto" >
+    <assembly path="bin\Debug\Kraken.Framework.TestMonkey.Tests.dll" />
+  </Config>
+
+</NUnitProject>

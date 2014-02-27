@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Animal xmlns:ak="urn:kingdom:animal:vertebrate">
+  <ak:Legs>4</ak:Legs>
+  <ak:Name>Cat</ak:Name>
+</Animal>

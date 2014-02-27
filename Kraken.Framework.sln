@@ -1,0 +1,98 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2F7877D6-FA86-4265-B9E8-CCF4BC1211D1}"
+	ProjectSection(SolutionItems) = preProject
+		SolutionItems\SolutionInfo.cs = SolutionItems\SolutionInfo.cs
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kraken.Tests", "source\Kraken.Tests\Kraken.Tests.csproj", "{6D70C8C8-2DFC-4B13-99AA-AFF46494ECB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kraken.Autofac", "source\Kraken.Autofac\Kraken.Autofac.csproj", "{514174F0-6F5D-4638-BBAA-73D7CAEAA7B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kraken.Core", "source\Kraken.Core\Kraken.Core.csproj", "{D0365619-0C1B-4AED-875B-1882E504FEF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kraken.Core.Tests", "source\_Tests\Kraken.Core.Tests\Kraken.Core.Tests.csproj", "{0A23A7A3-A368-4758-BE43-053D403F68D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kraken.Net", "source\Kraken.Net\Kraken.Net.csproj", "{B4ECE6E1-786B-4370-82DF-1DD7395EEC43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kraken.Web", "source\Kraken.Web\Kraken.Web.csproj", "{9169141B-8D4B-4143-AA85-38E8864A7677}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{095A8101-67AD-44A0-9AE2-EF090DE32EBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kraken.Noda", "source\Kraken.Noda\Kraken.Noda.csproj", "{F7D738E2-B76B-4BD8-B258-5FFE769342C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kraken.Web.Tests", "source\_Tests\Kraken.Web.Tests\Kraken.Web.Tests.csproj", "{356EDBFD-BFB2-4E82-B4FE-32D04EFBB44A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kraken.Net.Tests", "source\_Tests\Kraken.Net.Tests\Kraken.Net.Tests.csproj", "{9EF1974F-C2D2-4A7C-ABBF-C2390248B875}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kraken.Tests.Tests", "source\_Tests\Kraken.Tests.Tests\Kraken.Tests.Tests.csproj", "{B152CD5B-F35D-43D1-B55C-A49881F16B27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kraken.Tests.NUnit", "source\Kraken.Tests.NUnit\Kraken.Tests.NUnit.csproj", "{8D280E0A-6C63-4531-B6B7-9E551AFA2D32}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6D70C8C8-2DFC-4B13-99AA-AFF46494ECB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D70C8C8-2DFC-4B13-99AA-AFF46494ECB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D70C8C8-2DFC-4B13-99AA-AFF46494ECB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D70C8C8-2DFC-4B13-99AA-AFF46494ECB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{514174F0-6F5D-4638-BBAA-73D7CAEAA7B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{514174F0-6F5D-4638-BBAA-73D7CAEAA7B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{514174F0-6F5D-4638-BBAA-73D7CAEAA7B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{514174F0-6F5D-4638-BBAA-73D7CAEAA7B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0365619-0C1B-4AED-875B-1882E504FEF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0365619-0C1B-4AED-875B-1882E504FEF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0365619-0C1B-4AED-875B-1882E504FEF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0365619-0C1B-4AED-875B-1882E504FEF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A23A7A3-A368-4758-BE43-053D403F68D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A23A7A3-A368-4758-BE43-053D403F68D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A23A7A3-A368-4758-BE43-053D403F68D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A23A7A3-A368-4758-BE43-053D403F68D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4ECE6E1-786B-4370-82DF-1DD7395EEC43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4ECE6E1-786B-4370-82DF-1DD7395EEC43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4ECE6E1-786B-4370-82DF-1DD7395EEC43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4ECE6E1-786B-4370-82DF-1DD7395EEC43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9169141B-8D4B-4143-AA85-38E8864A7677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9169141B-8D4B-4143-AA85-38E8864A7677}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9169141B-8D4B-4143-AA85-38E8864A7677}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9169141B-8D4B-4143-AA85-38E8864A7677}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7D738E2-B76B-4BD8-B258-5FFE769342C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7D738E2-B76B-4BD8-B258-5FFE769342C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7D738E2-B76B-4BD8-B258-5FFE769342C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7D738E2-B76B-4BD8-B258-5FFE769342C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{356EDBFD-BFB2-4E82-B4FE-32D04EFBB44A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{356EDBFD-BFB2-4E82-B4FE-32D04EFBB44A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{356EDBFD-BFB2-4E82-B4FE-32D04EFBB44A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{356EDBFD-BFB2-4E82-B4FE-32D04EFBB44A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EF1974F-C2D2-4A7C-ABBF-C2390248B875}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EF1974F-C2D2-4A7C-ABBF-C2390248B875}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EF1974F-C2D2-4A7C-ABBF-C2390248B875}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EF1974F-C2D2-4A7C-ABBF-C2390248B875}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B152CD5B-F35D-43D1-B55C-A49881F16B27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B152CD5B-F35D-43D1-B55C-A49881F16B27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B152CD5B-F35D-43D1-B55C-A49881F16B27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B152CD5B-F35D-43D1-B55C-A49881F16B27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D280E0A-6C63-4531-B6B7-9E551AFA2D32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D280E0A-6C63-4531-B6B7-9E551AFA2D32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D280E0A-6C63-4531-B6B7-9E551AFA2D32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D280E0A-6C63-4531-B6B7-9E551AFA2D32}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0A23A7A3-A368-4758-BE43-053D403F68D1} = {095A8101-67AD-44A0-9AE2-EF090DE32EBD}
+		{356EDBFD-BFB2-4E82-B4FE-32D04EFBB44A} = {095A8101-67AD-44A0-9AE2-EF090DE32EBD}
+		{9EF1974F-C2D2-4A7C-ABBF-C2390248B875} = {095A8101-67AD-44A0-9AE2-EF090DE32EBD}
+		{B152CD5B-F35D-43D1-B55C-A49881F16B27} = {095A8101-67AD-44A0-9AE2-EF090DE32EBD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Data.5.0.505.0\lib\NET35
+	EndGlobalSection
+EndGlobal

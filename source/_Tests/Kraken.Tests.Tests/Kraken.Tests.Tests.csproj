@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B152CD5B-F35D-43D1-B55C-A49881F16B27}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Kraken.Framework.TestMonkey.Tests</RootNamespace>
+    <AssemblyName>Kraken.Framework.TestMonkey.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NLog, Version=2.1.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\NLog.2.1.0\lib\net40\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\ObjectXRay.cs" />
+    <Compile Include="Fixtures\AssertBuilderFixture.cs" />
+    <Compile Include="Core\Fixture.cs" />
+    <Compile Include="Fixtures\ObjectComparerFixture.cs" />
+    <Compile Include="Fixtures\ObjectWalkerFixture.cs" />
+    <Compile Include="Properties\AssemblyInfoUnique.cs" />
+    <Compile Include="TestClasses\Animal.cs" />
+    <Compile Include="TestClasses\AnimalCollection.cs" />
+    <Compile Include="TestClasses\Bearing.cs" />
+    <Compile Include="TestClasses\Classification.cs" />
+    <Compile Include="TestClasses\ColourDataTable.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TestClasses\Configuration.cs" />
+    <Compile Include="TestClasses\IAnimal.cs" />
+    <Compile Include="TestClasses\Indexer.cs" />
+    <Compile Include="TestClasses\Light.cs" />
+    <Compile Include="TestClasses\MonthArray.cs" />
+    <Compile Include="TestClasses\NetworkAddress.cs" />
+    <Compile Include="TestClasses\ParentChain.cs" />
+    <Compile Include="TestClasses\Zoo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Kraken.Framework.TestMonkey.Tests.dll.config" />
+    <None Include="Kraken.Framework.TestMonkey.Tests.dll.nunit" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Kraken.Tests.NUnit\Kraken.Tests.NUnit.csproj">
+      <Project>{8d280e0a-6c63-4531-b6b7-9e551afa2d32}</Project>
+      <Name>Kraken.Tests.NUnit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Kraken.Tests\Kraken.Tests.csproj">
+      <Project>{6D70C8C8-2DFC-4B13-99AA-AFF46494ECB9}</Project>
+      <Name>Kraken.Tests</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
