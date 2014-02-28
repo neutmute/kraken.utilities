@@ -7,7 +7,5 @@
         <authors>neutmute</authors>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>https://github.com/neutmute/kraken.framework</description>
-		<projectUrl>https://bitbucket.org/bauermediaau/bauer.framework</projectUrl>
-		<iconUrl></iconUrl>
 	</metadata>
 </package>
