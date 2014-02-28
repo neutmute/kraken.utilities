@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
 
-namespace Kraken.Framework.TestMonkey.Tests
+namespace Kraken.Tests.Tests
 {
 	/// <summary>
 	/// Take a peek inside private/protected/internal classes for testing...

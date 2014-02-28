@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using Kraken.Core;
 using Kraken.Core.Tests;
-using Kraken.Framework.TestMonkey;
+using Kraken.Tests;
 using NLog.Targets;
 using NUnit.Framework;
 

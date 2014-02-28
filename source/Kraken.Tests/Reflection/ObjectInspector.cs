@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using NLog;
 
-namespace Kraken.Framework.TestMonkey
+namespace Kraken.Tests
 {
     #region Delegates
     

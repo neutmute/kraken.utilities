@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
 
-namespace Kraken.Framework.TestMonkey
+namespace Kraken.Tests
 {
     /// <summary>
     /// A <see cref="List{T}"/> of <see cref="MemberInfo"/> instances that implements a <see cref="Contains"/> method.

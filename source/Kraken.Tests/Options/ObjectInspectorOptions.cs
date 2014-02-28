@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
 
-namespace Kraken.Framework.TestMonkey
+namespace Kraken.Tests
 {
     /// <summary>
     /// A container for options that govern the behaviour of an <see cref="ObjectInspector"/>.

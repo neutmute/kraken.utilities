@@ -7,8 +7,8 @@
     <ProjectGuid>{B4ECE6E1-786B-4370-82DF-1DD7395EEC43}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Kraken.Framework.Net</RootNamespace>
-    <AssemblyName>Kraken.Framework.Net</AssemblyName>
+    <RootNamespace>Kraken.Net</RootNamespace>
+    <AssemblyName>Kraken.Net</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

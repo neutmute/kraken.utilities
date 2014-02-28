@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Kraken.Framework.TestMonkey
+namespace Kraken.Tests
 {
     public class TestMonkeyException: Exception
     {

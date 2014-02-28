@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Kraken.Framework.TestMonkey
+namespace Kraken.Tests
 {
     /// <summary>
     /// Extensions methods for <see cref="List{String}"/>

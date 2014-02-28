@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Collections;
 using System.Linq;
 
-namespace Kraken.Framework.TestMonkey
+namespace Kraken.Tests
 {
 	/// <summary>
 	/// Provide some more assertion helpers.

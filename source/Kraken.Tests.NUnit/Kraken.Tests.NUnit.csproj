@@ -8,8 +8,8 @@
     <ProjectGuid>{8D280E0A-6C63-4531-B6B7-9E551AFA2D32}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Kraken.Framework.Testing</RootNamespace>
-    <AssemblyName>Kraken.Framework.Testing</AssemblyName>
+    <RootNamespace>Kraken.Tests.NUnit</RootNamespace>
+    <AssemblyName>Kraken.Tests.NUnit</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>

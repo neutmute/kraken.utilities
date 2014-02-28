@@ -5,7 +5,7 @@ using System.IO;
 using System.Xml.Serialization;
 using Kraken.Core;
 using Kraken.Core.Tests;
-using Kraken.Framework.TestMonkey;
+using Kraken.Tests;
 using NUnit.Framework;
 
 namespace Kraken.Core.Tests

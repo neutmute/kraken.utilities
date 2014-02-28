@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Kraken.Framework.TestMonkey
+namespace Kraken.Tests
 {
     /// <summary>
     /// Allows more complex options to be passed into the code generator

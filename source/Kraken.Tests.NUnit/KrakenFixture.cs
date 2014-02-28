@@ -6,11 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Transactions;
 using Autofac;
-using Kraken.Framework.TestMonkey;
+using Kraken.Tests;
 using NLog;
 using NUnit.Framework;
 
-namespace Kraken.Framework.Testing
+namespace Kraken.Tests.NUnit
 {
     [TestFixture]
     public abstract class KrakenFixture

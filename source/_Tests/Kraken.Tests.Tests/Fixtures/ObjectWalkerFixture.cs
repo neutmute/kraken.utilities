@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Kraken.Framework.TestMonkey;
-using Kraken.Framework.TestMonkey.Tests;
-using Kraken.Framework.TestMonkey.Tests.TestClasses;
+using Kraken.Tests;
+using Kraken.Tests.Tests;
+using Kraken.Tests.Tests.TestClasses;
 using NUnit.Framework;
 using UnitTests.TestClasses;
 

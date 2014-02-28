@@ -4,7 +4,7 @@ using System.Data;
 using System.Reflection;
 using System.Collections;
 
-namespace Kraken.Framework.TestMonkey
+namespace Kraken.Tests
 {
     /// <summary>
     /// Resource provides some methods for working with resources and getting them into files or strings

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using Kraken.Framework.Testing;
-using Kraken.Framework.TestMonkey;
+using Kraken.Tests.NUnit;
+using Kraken.Tests;
 using NUnit.Framework;
 
 namespace Kraken.Core.Tests

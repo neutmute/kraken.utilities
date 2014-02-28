@@ -5,7 +5,7 @@ using System.Text;
 using NLog.Targets;
 using NLog;
 
-namespace Kraken.Framework.TestMonkey
+namespace Kraken.Tests
 {
     /// <summary>
     /// Oh noes. brittle testing logic!

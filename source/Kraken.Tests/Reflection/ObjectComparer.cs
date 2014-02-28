@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace Kraken.Framework.TestMonkey
+namespace Kraken.Tests
 {
 
     /// <summary>

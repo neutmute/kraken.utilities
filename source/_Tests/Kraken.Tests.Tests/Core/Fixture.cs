@@ -6,7 +6,7 @@ using NLog.Targets;
 using NLog;
 using NUnit.Framework;
 
-namespace Kraken.Framework.TestMonkey.Tests
+namespace Kraken.Tests.Tests
 {
     [TestFixture]
     public abstract class Fixture

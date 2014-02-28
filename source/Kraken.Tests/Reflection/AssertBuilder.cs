@@ -4,7 +4,7 @@ using System.Data;
 using System.Reflection;
 using System.Collections;
 
-namespace Kraken.Framework.TestMonkey
+namespace Kraken.Tests
 {
     /// <summary>
     /// CodeGenerator is used to automatically generate assertions for an object so you don't 
