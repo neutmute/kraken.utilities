@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Animal xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Legs xmlns="urn:kingdom:animal:vertebrate">4</Legs>
+  <Name xmlns="urn:kingdom:animal:vertebrate">Cat</Name>
+</Animal>
