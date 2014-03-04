@@ -78,7 +78,7 @@ namespace Kraken.Core
         public static string GetStringFromEmbedded(Assembly assembly, string resource)
         {
             var stream = GetStream(assembly, resource);
-            StreamReader streamReader = new StreamReader(stream);
+            var streamReader = new StreamReader(stream);
 
             string content = streamReader.ReadToEnd();
 
@@ -98,6 +98,45 @@ namespace Kraken.Core
                 throw KrakenException.Create("Embedded Resource was not found: {0}::{1}", assembly.GetName().Name, resource);
             }
             return stream;
+        }
+
+
+        /// <summary>
+        /// Extracts a resource from the given assembly and dumps it's contents into the specified file
+        /// </summary>
+        /// <remarks>
+        /// Binary safe method so jpegs etc will work
+        /// </remarks>
+        public static void ExportToFile(Assembly assembly, string resource, string fileName)
+        {
+            Stream resourceStream = assembly.GetManifestResourceStream(resource);
+
+            if (resourceStream == null)
+            {
+                throw KrakenException.Create("Resource '{0}' was expected in assembly '{1}' but was not found.", resource, assembly.Location);
+            }
+
+            var fs = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
+            var bw = new BinaryWriter(fs);
+            var br = new BinaryReader(resourceStream);
+
+            bw.Write(br.ReadBytes((int)resourceStream.Length));
+
+            bw.Close();
+            br.Close();
+            fs.Close();
+        }
+
+        /// <summary>
+        /// Extracts a resource from the calling assembly and dumps it's contents into the specified file
+        /// </summary>
+        /// <remarks>
+        /// Binary safe method so jpegs etc will work
+        /// </remarks>
+        public static void ExportToFile(string resource, string fileName)
+        {
+            Assembly callingAssembly = Assembly.GetCallingAssembly();
+            ExportToFile(callingAssembly, resource, fileName);
         }
 
     }
