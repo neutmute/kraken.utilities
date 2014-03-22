@@ -119,7 +119,7 @@ namespace Kraken.Tests
 			{
                 expectedLine    = expectedContent[lineIndex];
 				actualLine	    = actualContent[lineIndex];
-				failError		= failHeader + "\r\nLine Number:\t\t" + lineIndex+1;
+				failError		= failHeader + "\r\nLine Number:\t\t" + (lineIndex+1);
 
 				if (!ignoreLineNumbers.Contains(lineIndex+1))
 				{
