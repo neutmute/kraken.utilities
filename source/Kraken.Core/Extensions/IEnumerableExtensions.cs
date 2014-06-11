@@ -15,12 +15,20 @@ namespace Kraken.Core
 
         public static string ToCsv<T>(this IEnumerable<T> source, string joiner)
         {
+            if (source == null)
+            {
+                return null;
+            }
             var csv = String.Join(joiner, source.Select(x => x.ToStringNullSafe()).ToArray());
             return csv;
         }
 
         public static string ToCsv<T>(this IEnumerable<T> source, string joiner, Converter<T, string> converterMethod)
         {
+            if (source == null)
+            {
+                return null;
+            }
             string csv = String.Join(joiner, source.Select(x => converterMethod(x)).ToArray());
             return csv;
         }
