@@ -41,26 +41,11 @@ namespace Kraken.Core
         {
             get
             {
-                EnsureCustomAttributeExists(Assembly.GetCallingAssembly());
+                EnsureCustomCompilationAttributeExists(Assembly.GetCallingAssembly());
                 return _compilationAttribute.IsDebug;
             }
         }
-
-        ///// <summary>
-        ///// Allow a change to the render of page headers etc
-        ///// </summary>
-        //public static bool IsDeveloperMachine
-        //{
-        //    get
-        //    {
-        //        string thisMachine = Environment.MachineName.ToUpper();
-        //        bool isLocalDevelopmentMachine = thisMachine.StartsWith("AUB")
-        //                                        || thisMachine.StartsWith("AUD")
-        //                                        || thisMachine.StartsWith("IT");    //joe has IT1...
-        //        return isLocalDevelopmentMachine;
-        //    }
-        //}
-
+        
         private static string ExecutingAssemblyPath
         {
             get { return Assembly.GetExecutingAssembly().Location; }
@@ -112,10 +97,15 @@ namespace Kraken.Core
             appMetadata.ExeFolder = new FileInfo(assembly.Location).DirectoryName;
             appMetadata.UserName = Environment.UserName;
 
-            var compilationAttribute = GetCustomAttribute(assembly);
+            var compilationAttribute = GetCustomAttribute <AssemblyCompilationAttribute>(assembly);
             if (compilationAttribute != null)
             {
-                appMetadata.BuildConfiguration = compilationAttribute.BuildConfiguration;
+                appMetadata.BuildConfiguration = compilationAttribute.BuildConfiguration.GetDisplayName();
+            }
+            else
+            {
+                var configurationAttribute = GetCustomAttribute<AssemblyConfigurationAttribute>(assembly);
+                appMetadata.BuildConfiguration = configurationAttribute == null ? "Unknown" : configurationAttribute.Configuration;
             }
 
             return appMetadata;
@@ -144,12 +134,12 @@ namespace Kraken.Core
         [CodeCoverageExcluded("Cannot cover this in a Unit Test by definition")]
         public static void AssertIsDebug(string exceptionMessageFormat, params object[] args)
         {
-            Assembly callingAssmebly = Assembly.GetCallingAssembly();
-            EnsureCustomAttributeExists(callingAssmebly);
+            Assembly callingAssembly = Assembly.GetCallingAssembly();
+            EnsureCustomCompilationAttributeExists(callingAssembly);
 
             if (!_compilationAttribute.IsDebug)
             {
-                throw new NotSupportedException(string.Format(exceptionMessageFormat, args) + " (calling assembly=" + callingAssmebly.FullName + ")");
+                throw new NotSupportedException(string.Format(exceptionMessageFormat, args) + " (calling assembly=" + callingAssembly.FullName + ")");
             }
         }
 
@@ -157,23 +147,23 @@ namespace Kraken.Core
         /// Find the custom attribute in the assembly that made the call to IsDebug
         /// </summary>
         [CodeCoverageExcluded("Cannot cover this in a Unit Test since it depends on compile attributes")]
-        private static AssemblyCompilationAttribute GetCustomAttribute(Assembly assembly)
+        private static T GetCustomAttribute<T>(Assembly assembly) where T : Attribute
         {
             object[] customAttributes = assembly.GetCustomAttributes(false);
-            AssemblyCompilationAttribute compilationAttribute = null;
+            T customAttribute = null;
             foreach (Attribute attribute in customAttributes)
             {
-                compilationAttribute = attribute as AssemblyCompilationAttribute;
+                customAttribute = attribute as T;
 
-                if (compilationAttribute != null)
+                if (customAttribute != null)
                 {
                     break;
                 }
             }
-            return compilationAttribute;
+            return customAttribute;
         }
 
-        private static void EnsureCustomAttributeExists(Assembly assembly)
+        private static void EnsureCustomCompilationAttributeExists(Assembly assembly)
         {
             // If already set, then no work to do
             if (_compilationAttribute != null)
@@ -181,7 +171,7 @@ namespace Kraken.Core
                 return;
             }
 
-            _compilationAttribute = GetCustomAttribute(assembly);
+            _compilationAttribute = GetCustomAttribute < AssemblyCompilationAttribute>(assembly);
 
             // If we can't find it then the call to IsDebugBits is illegal
             if (_compilationAttribute == null)

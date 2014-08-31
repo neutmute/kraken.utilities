@@ -18,7 +18,7 @@ namespace Kraken.Core
 
         public string Version { get; internal set; }
 
-        public BuildConfiguration BuildConfiguration { get; internal set; }
+        public string BuildConfiguration { get; internal set; }
 
         public string ExePath { get; internal set; }
 
@@ -57,7 +57,7 @@ namespace Kraken.Core
                 , Process.GetCurrentProcess().Id   // Make it easier to find which service is smashing a server CPU in task manager
                 , Name
                 , Environment.OSVersion
-                , BuildConfiguration.GetDisplayName()
+                , BuildConfiguration
                 , UserName
                 );
 
