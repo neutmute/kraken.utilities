@@ -45,6 +45,7 @@ namespace Kraken.Core
             string hourLabel = "hour";
             string minuteLabel = "minute";
             string secondLabel = "second";
+            string millisecondLabel = "milliseconds";
 
             var timeSinceEpoch = SystemDate.Now - DateTime.MinValue;
             if (timeSinceEpoch.Days == timeSpan.Days)
@@ -58,6 +59,7 @@ namespace Kraken.Core
                 hourLabel = "hr";
                 minuteLabel = "min";
                 secondLabel = "sec";
+                millisecondLabel = "ms";
             }
 
             var resolutionDepth = 0;
@@ -127,7 +129,7 @@ namespace Kraken.Core
                     }
                     else
                     {
-                        sb.AppendFormat("{0} {1}s", seconds.ToString("N2"), secondLabel);
+                        sb.AppendFormat("{0} {1}", timeSpan.TotalMilliseconds, millisecondLabel);
                     }
                 }
             }

@@ -28,6 +28,9 @@ namespace Kraken.Core.Tests.Business.ExtensionMethods
 
             span = new TimeSpan(2, 1, 1, 1);
             Assert.AreEqual("2 days, 1 hour, 1 minute, 1 second", span.ToHumanReadable());
+
+            span = TimeSpan.FromMilliseconds(999);
+            Assert.AreEqual("999 milliseconds", span.ToHumanReadable());
         }
 
         [Test]
@@ -47,6 +50,9 @@ namespace Kraken.Core.Tests.Business.ExtensionMethods
 
             span = new TimeSpan(2, 1, 1, 1);
             Assert.AreEqual("2 days, 1 hr, 1 min, 1 sec", span.ToHumanReadable(HumanReadableTimeSpanOptions.Abbreviated));
+            
+            span = TimeSpan.FromMilliseconds(999);
+            Assert.AreEqual("999 ms", span.ToHumanReadable());
         }
     }
 }
