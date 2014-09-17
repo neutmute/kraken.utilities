@@ -127,6 +127,10 @@ namespace Kraken.Core
                     {
                         sb.AppendFormat("{0} {1}s", (int)seconds, secondLabel);
                     }
+                    else if (seconds > Decimal.One)
+                    {
+                        sb.AppendFormat("{0} {1}s", seconds.ToString("N2"), secondLabel);
+                    }
                     else
                     {
                         sb.AppendFormat("{0} {1}", timeSpan.TotalMilliseconds, millisecondLabel);
