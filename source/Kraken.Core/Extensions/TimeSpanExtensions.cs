@@ -133,7 +133,7 @@ namespace Kraken.Core
                     }
                     else
                     {
-                        sb.AppendFormat("{0} {1}", timeSpan.TotalMilliseconds, millisecondLabel);
+                        sb.AppendFormat("{0} {1}", timeSpan.TotalMilliseconds.ToString("N0"), millisecondLabel);
                     }
                 }
             }
