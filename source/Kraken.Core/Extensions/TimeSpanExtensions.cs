@@ -131,9 +131,13 @@ namespace Kraken.Core
                     {
                         sb.AppendFormat("{0} {1}s", seconds.ToString("N2"), secondLabel);
                     }
-                    else
+                    else if (timeSpan.TotalMilliseconds >= 1)
                     {
                         sb.AppendFormat("{0} {1}", timeSpan.TotalMilliseconds.ToString("N0"), millisecondLabel);
+                    }
+                    else
+                    {
+                        sb.AppendFormat("{0} {1}", timeSpan.TotalMilliseconds.ToString("N2"), millisecondLabel);
                     }
                 }
             }
