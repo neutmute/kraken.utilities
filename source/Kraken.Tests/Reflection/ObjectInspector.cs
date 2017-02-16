@@ -5,7 +5,6 @@ using System.Data;
 using System.Net.Mail;
 using System.Reflection;
 using System.Text.RegularExpressions;
-using Common.Logging;
 
 namespace Kraken.Tests
 {
@@ -31,7 +30,6 @@ namespace Kraken.Tests
         #region Fields
         private int _currentTraversalDepth;
         private bool _mirrorInUse;
-        private static ILog Log = LogManager.GetCurrentClassLogger();
         #endregion
 
         #region Properties
@@ -97,7 +95,7 @@ namespace Kraken.Tests
 
                     if (innerTarget == null)
                     {
-                        Log.Warn(m => m("CodeGenWalker skipping list item {0} since the inner target is null", i));
+                        Console.WriteLine("CodeGenWalker skipping list item {0} since the inner target is null", i);
                         continue;
                     }
 
