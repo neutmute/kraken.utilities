@@ -32,9 +32,6 @@ namespace Kraken.Core
         private static Dictionary<string, bool> _featureActivationCache = new Dictionary<string, bool>();
         private static Dictionary<string, DateTime> _featureActivationDateCache = new Dictionary<string, DateTime>();
         static private readonly ILog Log = LogManager.GetCurrentClassLogger();
-
-
-        private static string _logTargetFolder;
         #endregion
 
         #region Constructors

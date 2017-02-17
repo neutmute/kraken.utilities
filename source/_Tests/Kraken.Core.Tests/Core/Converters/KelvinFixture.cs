@@ -35,6 +35,7 @@ namespace Kraken.Core.Tests
             AssertTool.ResourceEquals("Kraken.Core.Tests.Resources.Kelvin.plainCat.txt", new FileInfo(testFile));
         }
 
+
         [Test]
         public void ToXmlFileWithNamespace()
         {
@@ -46,7 +47,7 @@ namespace Kraken.Core.Tests
             nameSpaces.Add("ak", "urn:kingdom:animal:vertebrate");
             Kelvin<Animal>.ToXmlFile(cat, testFile, nameSpaces);
 
-            AssertTool.ResourceEquals("Kraken.Core.Tests.Resources.Kelvin.namespacedCat.txt", new FileInfo(testFile));
+            AssertTool.ResourceEquals(typeof(Animal).Assembly, "Kraken.Core.Tests.Resources.Kelvin.namespacedCat.txt", new FileInfo(testFile));
         }
     }
 }

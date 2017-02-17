@@ -48,10 +48,10 @@ namespace Kraken.Tests
 			ResourceEquals(Assembly.GetCallingAssembly(), expectedResource, actualValue, ignoreLineNumbers);
 		}
 
-		/// <summary>
-		/// Compare a string against a resource
-		/// </summary>
-		private static void ResourceEquals(Assembly assembly, string expectedResource, string actualValue, params int[] ignoreLineNumbers)
+        /// <summary>
+        /// Compare a string against a resource
+        /// </summary>
+        public static void ResourceEquals(Assembly assembly, string expectedResource, string actualValue, params int[] ignoreLineNumbers)
 		{
 			string tempFilename = Path.GetTempFileName();
 
@@ -67,7 +67,7 @@ namespace Kraken.Tests
 		/// <summary>
 		/// Compare a file against a resource, specifying the assembly
 		/// </summary>
-		private static void ResourceEquals(Assembly assembly, string expectedResource,  FileInfo file, params int[] ignoreLineNumbers)
+		public static void ResourceEquals(Assembly assembly, string expectedResource,  FileInfo file, params int[] ignoreLineNumbers)
 		{
             if (file == null)
                 throw new ArgumentNullException("file");
