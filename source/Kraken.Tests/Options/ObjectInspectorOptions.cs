@@ -18,6 +18,7 @@ namespace Kraken.Tests
         #endregion
 
         #region Properties
+
         /// <summary>
         /// Log what asserts were made to the console. Useful for double checking the tool is 
         /// doing what you thought it should be doing.
@@ -62,7 +63,7 @@ namespace Kraken.Tests
         {
             get { return _ExcludeProperties; }
         }
-
+        
         /// <summary>
         /// Gets a <see cref="List{String}"/> of property names that should be included in
         /// the output when <see cref="EnumerateAllProperties"/> is <code>false</code>.
@@ -109,10 +110,13 @@ namespace Kraken.Tests
                 return flags;
             }
         }
+
+        public AssertSignatures AssertSignatures { get; set; }
+
         #endregion
 
         #region Constructors
-        
+
         /// <summary>
         /// Creates a new instance of <see cref="ObjectInspectorOptions"/>.
         /// </summary>
@@ -122,6 +126,8 @@ namespace Kraken.Tests
             AssertFailAfterGeneration = true;
             EnumerateAllProperties = true;
             MaximumTraversalDepth = 999;
+
+            AssertSignatures = new AssertSignatures();
 
             _IncludeProperties = new List<string>();
             _ExcludeProperties = new List<string>();

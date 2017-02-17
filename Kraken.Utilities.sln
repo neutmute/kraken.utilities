@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2F7877D6-FA86-4265-B9E8-CCF4BC1211D1}"
 	ProjectSection(SolutionItems) = preProject
@@ -33,6 +33,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kraken.Tests.NUnit", "source\Kraken.Tests.NUnit\Kraken.Tests.NUnit.csproj", "{8D280E0A-6C63-4531-B6B7-9E551AFA2D32}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kraken.NLog", "source\Kraken.NLog\Kraken.NLog.csproj", "{20A68B1D-6A18-4D13-A075-C0030BA6856C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{347D6D94-F8C0-44C9-8075-3513630B88BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Tests.Xunit", "samples\Sample.Tests.Xunit\Sample.Tests.Xunit.csproj", "{322F5A6B-9ED4-463D-B42A-4F52346338BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -88,6 +92,10 @@ Global
 		{20A68B1D-6A18-4D13-A075-C0030BA6856C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20A68B1D-6A18-4D13-A075-C0030BA6856C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20A68B1D-6A18-4D13-A075-C0030BA6856C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{322F5A6B-9ED4-463D-B42A-4F52346338BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{322F5A6B-9ED4-463D-B42A-4F52346338BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{322F5A6B-9ED4-463D-B42A-4F52346338BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{322F5A6B-9ED4-463D-B42A-4F52346338BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,6 +105,7 @@ Global
 		{356EDBFD-BFB2-4E82-B4FE-32D04EFBB44A} = {095A8101-67AD-44A0-9AE2-EF090DE32EBD}
 		{9EF1974F-C2D2-4A7C-ABBF-C2390248B875} = {095A8101-67AD-44A0-9AE2-EF090DE32EBD}
 		{B152CD5B-F35D-43D1-B55C-A49881F16B27} = {095A8101-67AD-44A0-9AE2-EF090DE32EBD}
+		{322F5A6B-9ED4-463D-B42A-4F52346338BE} = {347D6D94-F8C0-44C9-8075-3513630B88BA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Data.5.0.505.0\lib\NET35

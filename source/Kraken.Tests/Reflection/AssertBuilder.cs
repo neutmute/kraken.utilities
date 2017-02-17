@@ -47,6 +47,11 @@ namespace Kraken.Tests
                 _EmitGeneratedCodeToConsole = !value;
             }
         }
+
+        public bool LogEmittedCode { get; set; }
+
+        public bool AppendEmittedCodeToFailMessage { get; set; }
+
         #endregion
 
         #region Constructors
@@ -155,7 +160,7 @@ namespace Kraken.Tests
 
             if (targetObject == null)
             {
-                EmitCode("Assert.IsNull(" + targetName + ");");
+                EmitCode("Assert." + Options.AssertSignatures.IsNull + "(" + targetName + ");");
             }
             else
             {
@@ -189,7 +194,19 @@ namespace Kraken.Tests
 
             if (Options.AssertFailAfterGeneration)
             {
-                throw new ApplicationException(c_SuccessMessage);
+                var message = c_SuccessMessage;
+
+                if (AppendEmittedCodeToFailMessage)
+                {
+                    message += "\r\n" + m_EmittedCode;
+                }
+
+                TestFrameworkFacade.AssertFail(message);
+
+                if (LogEmittedCode)
+                {
+                    Console.WriteLine(m_EmittedCode);
+                }
             }
         }
 
@@ -469,12 +486,13 @@ namespace Kraken.Tests
             }
 
             EmitCode(
-                "Assert.AreEqual({0}{1}{2}, {3});{4}"
+                "Assert.{5}({0}{1}{2}, {3});{4}"
                 , qualifierPrefix
                 , expectedValue
                 , qualifierSuffix
                 , targetName
-                , comment);
+                , comment
+                , Options.AssertSignatures.AreEqual);
         }
 
         private void WalkCallback(Type targetType, object targetObject, object mirrorObject, MemberInfo fieldInfo, string objectName)

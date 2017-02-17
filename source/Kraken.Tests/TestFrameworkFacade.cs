@@ -13,6 +13,7 @@ namespace Kraken.Tests
     {
         private static AssertFailSignature _assertFailCallback;
         private static AssertEqualSignature _assertCallback;
+        private static AssertEqualSignature _assertNotEqualCallback;
 
         /// <summary>
         /// Decouple from Test implementation
@@ -30,6 +31,19 @@ namespace Kraken.Tests
             set { _assertCallback = value; }
         }
 
+
+        public static AssertEqualSignature AssertNotEqual
+        {
+            get
+            {
+                if (_assertNotEqualCallback == null)
+                {
+                    throw TestMonkeyException.Create("AssertNotEqual property must be set");
+                }
+                return _assertNotEqualCallback;
+            }
+            set { _assertNotEqualCallback = value; }
+        }
 
         /// <summary>
         /// Decouple from Test implementation
