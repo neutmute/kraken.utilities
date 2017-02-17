@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Kraken.Core.Instrumentation;
+using Kraken.Core.Tests.Core.Extensions;
 using NUnit.Framework;
 
 namespace Kraken.Core.Tests.Core.Instrumentation
@@ -38,12 +39,8 @@ Performance Monitor Output: Perf Mon is the SUT
   ---------  -----  ----------  ------------  ----------------------------------  ------------------------------
   PointName     10   45,900.00      4,590.00  Duration=9,180.00ms, Time=13:14:09  Duration=0.00ms, Time=13:14:00
 --------------------------------------------------------------------------------
-", summary);
+".NormaliseCrlf(), summary.NormaliseCrlf());
             #endregion
-
-
-
-
         }
     }
 }

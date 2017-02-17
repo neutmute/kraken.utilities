@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using Kraken.Core.Tests.TestClasses;
 using Kraken.Core;
+using Kraken.Core.Tests.Core.Extensions;
 using NUnit.Framework;
 
 namespace Kraken.Core.Tests
@@ -30,7 +31,7 @@ namespace Kraken.Core.Tests
    1    True  Holy bat man boat monster  2000-01-01         14.23
    1   False            what boy wonder  2000-03-01      12314.23
    1    True                     (null)  2010-01-01  14.213333333
-", dump);
+".NormaliseCrlf(), dump.NormaliseCrlf());
             #endregion
 
         }
@@ -49,7 +50,7 @@ namespace Kraken.Core.Tests
   1   True    Holy bat man boat monster  2000-01-01  14.23       
   1   False   what boy wonder            2000-03-01  12314.23    
   1   True    (null)                     2010-01-01  14.213333333
-", dump);
+".NormaliseCrlf(), dump.NormaliseCrlf());
             #endregion
 
         }

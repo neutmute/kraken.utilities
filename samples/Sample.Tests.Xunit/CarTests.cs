@@ -17,6 +17,8 @@ namespace Sample.Tests.Xunit
 
             // Assert
             AssertBuilder.Generate(car, "car");
+
+            // Look in the error message and you will see the asserts
         }
     }
 }
