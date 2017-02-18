@@ -119,6 +119,17 @@ namespace UnitTests
 		}
 
         [Test]
+        public void DateTimeOffsetToString()
+        {
+            var testDate = DateTimeOffset.Parse("2015-03-30T15:20:26.7589030+11:00");
+            var codeGen = new AssertBuilder();
+            GetAssertBuilderOutput(codeGen, testDate);
+
+            Assert.AreEqual(@"Assert.AreEqual(DateTimeOffset.Parse(""2015-03-30T15:20:26.7589030+11:00""), target);", codeGen.GetEmittedCode());
+        }
+
+
+        [Test]
         public void Boolean ()
         {
             Light light = new Light { IsOn = true, DimmerPosition = 100 };

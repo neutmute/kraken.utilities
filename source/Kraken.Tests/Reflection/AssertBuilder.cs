@@ -315,6 +315,29 @@ namespace Kraken.Tests
                         qualifierSuffix = "\")";
                         break;
 
+                    case "System.DateTimeOffset":
+                        var dateTimeOffset = (DateTimeOffset)targetObject;
+                        if (dateTimeOffset == DateTimeOffset.MinValue)
+                        {
+                            expectedValue = "DateTimeOffset.MinValue";
+                            qualifierPrefix = "";
+                            qualifierSuffix = "";
+                        }
+                        else if (dateTimeOffset == DateTimeOffset.MaxValue)
+                        {
+                            expectedValue = "DateTimeOffset.MaxValue";
+                            qualifierPrefix = "";
+                            qualifierSuffix = "";
+                        }
+                        else
+                        {
+                            qualifierPrefix = "DateTimeOffset.Parse(\"";
+                            qualifierSuffix = "\")";
+                            expectedValue = dateTimeOffset.ToString("o");
+                        }
+                        break;
+
+
                     case "System.DateTime":
                         DateTime value = Convert.ToDateTime(targetObject);
                         if (value == DateTime.MinValue)
