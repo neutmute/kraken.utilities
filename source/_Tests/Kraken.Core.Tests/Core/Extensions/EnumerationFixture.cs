@@ -89,7 +89,7 @@ namespace Kraken.Core.Tests.Extensions
         {
             List<Colour> colours = Enumeration.GetAll<Colour>(true);
 
-            #region CodeGen Assertions
+            #region Generated Assertions
             Assert.AreEqual(8, colours.Count);
             Assert.AreEqual(Colour.Unknown, colours[0]);
             Assert.AreEqual(Colour.Red, colours[1]);
@@ -107,7 +107,7 @@ namespace Kraken.Core.Tests.Extensions
         {
             List<Colour> colours = Enumeration.GetAll<Colour>(false);
 
-            #region CodeGen Assertions
+            #region Generated Assertions
             Assert.AreEqual(7, colours.Count);
             Assert.AreEqual(Colour.Red, colours[0]);
             Assert.AreEqual(Colour.Orange, colours[1]);

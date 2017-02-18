@@ -25,7 +25,7 @@ namespace Kraken.Core.Tests
             Assert.AreEqual(entityDumper.KrakenHorizontalAlignDefault, KrakenHorizontalAlign.Right);
 
             // CodeGen.GenerateAssertions(dump, "dump"); // The following assertions were generated on 24-Jan-2011
-             #region CodeGen Assertions
+             #region Generated Assertions
              Assert.AreEqual(@"  Id  IsCool                Description     Created        Amount
   --  ------  -------------------------  ----------  ------------
    1    True  Holy bat man boat monster  2000-01-01         14.23
@@ -44,7 +44,7 @@ namespace Kraken.Core.Tests
             string dump = entityDumper.Dump(items);
 
             // CodeGen.GenerateAssertions(dump, "dump"); // The following assertions were generated on 24-Jan-2011
-            #region CodeGen Assertions
+            #region Generated Assertions
             Assert.AreEqual(@"  Id  IsCool  Description                Created     Amount      
   --  ------  -------------------------  ----------  ------------
   1   True    Holy bat man boat monster  2000-01-01  14.23       

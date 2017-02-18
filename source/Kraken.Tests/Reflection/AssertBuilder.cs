@@ -216,7 +216,7 @@ namespace Kraken.Tests
 
             if (Options.EmitRegionWrappers)
             {
-                EmitCode("#region CodeGen Assertions");
+                EmitCode("#region Generated Assertions");
             }
         }
 

@@ -17,7 +17,7 @@ namespace Kraken.Core.Tests.Core.Web
             var context = WcfChannelLogic.GetMessageMetadata(action);
 
             // AssertBuilder.Generate(context, "context"); // The following assertions were generated on 15-May-2012
-            #region CodeGen Assertions
+            #region Generated Assertions
             Assert.AreEqual("Get", context.Operation);
             Assert.AreEqual("IUserService", context.Interface);
             #endregion

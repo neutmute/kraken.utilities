@@ -26,7 +26,7 @@ namespace Kraken.Core.Tests.Core.UI
             string toString = text.ToString();
 
             // CodeGen.GenerateAssertions(toString, "toString"); // The following assertions were generated on 28-Sep-2010
-            #region CodeGen Assertions
+            #region Generated Assertions
             Assert.AreEqual("[Critical] lorum ipsum", toString);
             #endregion
         }

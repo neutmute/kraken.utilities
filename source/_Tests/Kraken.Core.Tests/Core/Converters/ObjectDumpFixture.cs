@@ -18,7 +18,7 @@ namespace Kraken.Core.Tests
             string output = DataEntity.GetObjectDump(single).ToString();
 
             // CodeGen.GenerateAssertions(output, "output"); // The following assertions were generated on 21-Jun-2011
-            #region CodeGen Assertions
+            #region Generated Assertions
             Assert.AreEqual("Id=1, IsCool=True, Description=Holy bat man boat monster, Created=2000-01-01, Amount=14.23", output);
             #endregion
         }
@@ -33,7 +33,7 @@ namespace Kraken.Core.Tests
             ObjectDump merged = ObjectDump.Merge(dump1, dump2);
 
             // CodeGen.GenerateAssertions(merged, "merged"); // The following assertions were generated on 22-Jun-2011
-            #region CodeGen Assertions
+            #region Generated Assertions
             Assert.AreEqual(10, merged.Headers.Count);
             Assert.AreEqual("Id", merged.Headers[0]);
             Assert.AreEqual("IsCool", merged.Headers[1]);

@@ -18,7 +18,7 @@ namespace Kraken.Core.Tests
         {
             Animal cat = Kelvin<Animal>.FromXml(Resource.ExportToString("Kraken.Core.Tests.Resources.Kelvin.plainCat.txt"));
             // CodeGen.GenerateAssertions(cat, "cat"); // The following assertions were generated on 30-Jun-2011
-            #region CodeGen Assertions
+            #region Generated Assertions
             Assert.AreEqual(4, cat.Legs);
             Assert.AreEqual("Cat", cat.Name);
             #endregion

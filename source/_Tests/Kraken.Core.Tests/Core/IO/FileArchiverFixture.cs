@@ -28,7 +28,7 @@ namespace Kraken.Core.Tests
             string[] files = Directory.GetFiles(destinationDirectory);
 
             // CodeGen.GenerateAssertions(files, "files"); // The following assertions were generated on 21-Feb-2011
-            #region CodeGen Assertions
+            #region Generated Assertions
             Assert.AreEqual(1, files.Length);
             Assert.AreEqual(TestTempDirectory + "\\Archive\\TestFile.txt", files[0]);
             #endregion
@@ -52,7 +52,7 @@ namespace Kraken.Core.Tests
             string[] files = Directory.GetFiles(destinationDirectory);
 
             // CodeGen.GenerateAssertions(files, "files"); // The following assertions were generated on 21-Feb-2011
-            #region CodeGen Assertions
+            #region Generated Assertions
             Assert.AreEqual(2, files.Length);
             Assert.AreEqual(TestTempDirectory + "\\Archive\\TestFile.txt", files[0]);
             Assert.AreEqual(TestTempDirectory + "\\Archive\\TestFile.txt.1", files[1]);

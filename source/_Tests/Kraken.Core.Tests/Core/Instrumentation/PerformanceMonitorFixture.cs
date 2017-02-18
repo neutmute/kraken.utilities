@@ -30,7 +30,7 @@ namespace Kraken.Core.Tests.Core.Instrumentation
             Console.WriteLine(summary);
 
             // AssertBuilder.Generate(summary, "summary"); // The following assertions were generated on 17-Feb-2012
-            #region CodeGen Assertions
+            #region Generated Assertions
             Assert.AreEqual(@"
 --------------------------------------------------------------------------------
 Performance Monitor Output: Perf Mon is the SUT
