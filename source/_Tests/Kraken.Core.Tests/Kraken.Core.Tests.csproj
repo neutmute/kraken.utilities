@@ -72,7 +72,6 @@
     <Compile Include="..\..\..\SolutionItems\properties\AssemblyInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
-    <Compile Include="Core\Converters\KelvinFixture.cs" />
     <Compile Include="Core\Converters\ObjectDumperFixture.cs" />
     <Compile Include="Core\Converters\ObjectDumpFixture.cs" />
     <Compile Include="Core\ExecutionEnvironmentFixture.cs" />

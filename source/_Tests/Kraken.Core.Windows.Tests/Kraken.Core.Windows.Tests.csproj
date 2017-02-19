@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Web\WcfLogicFixture.cs" />
+    <Compile Include="Core\Windows\KelvinFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\Threading\TryWithTimeoutFixture.cs" />
   </ItemGroup>

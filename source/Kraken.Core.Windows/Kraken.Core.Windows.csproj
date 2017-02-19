@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Kraken.Core.Windows</RootNamespace>
     <AssemblyName>Kraken.Core.Windows</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,6 +40,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,12 +50,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Caching\BaseMemoryCache.cs" />
+    <Compile Include="Converters\Kelvin.cs" />
     <Compile Include="Processes\KrakenProcess.cs" />
     <Compile Include="Processes\NDesk.Options.cs" />
     <Compile Include="Processes\WindowsExplorerProcess.cs" />
     <Compile Include="Processes\WinTailProcess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Threading\TryWithTimeout.cs" />
+    <Compile Include="TransactionManager.cs" />
     <Compile Include="Web\WcfClientLogic.cs" />
     <Compile Include="Win32\UacHelper.cs" />
   </ItemGroup>

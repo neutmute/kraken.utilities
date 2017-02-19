@@ -77,6 +77,10 @@
     <Compile Include="Web\WebLogic.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Kraken.Core.Windows\Kraken.Core.Windows.csproj">
+      <Project>{8224724d-fab3-4050-820b-24f29fab29fd}</Project>
+      <Name>Kraken.Core.Windows</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Kraken.Core\Kraken.Core.csproj">
       <Project>{D0365619-0C1B-4AED-875B-1882E504FEF9}</Project>
       <Name>Kraken.Core</Name>

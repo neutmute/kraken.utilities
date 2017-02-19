@@ -58,7 +58,6 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Caching" />
-    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -76,7 +75,6 @@
     <Compile Include="Attributes\EnumCodeAttribute.cs" />
     <Compile Include="Attributes\EnumDescriptionAttribute.cs" />
     <Compile Include="Attributes\EnumSortOrderAttribute.cs" />
-    <Compile Include="Converters\Kelvin.cs" />
     <Compile Include="Converters\ObjectDump.cs" />
     <Compile Include="Converters\ObjectDumper.cs" />
     <Compile Include="ExecutionEnvironment.cs" />
@@ -111,7 +109,6 @@
     <Compile Include="Properties\AssemblyInfoUnique.cs" />
     <Compile Include="Reflection\ReflectionService.cs" />
     <Compile Include="Resource.cs" />
-    <Compile Include="TransactionManager.cs" />
     <Compile Include="UI\ActivityResult.cs" />
     <Compile Include="UI\Format.cs" />
     <Compile Include="UI\WarningText.cs" />
