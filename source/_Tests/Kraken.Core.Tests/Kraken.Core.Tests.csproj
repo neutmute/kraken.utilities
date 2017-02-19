@@ -84,7 +84,6 @@
     <Compile Include="Core\IO\FileArchiverFixture.cs" />
     <Compile Include="Core\IO\KrakenPathFixture.cs" />
     <Compile Include="Core\UI\WarningTextFixture.cs" />
-    <Compile Include="Core\Web\WcfLogicFixture.cs" />
     <Compile Include="Fixture.cs" />
     <Compile Include="Properties\AssemblyInfoUnique.cs" />
     <Compile Include="TestClasses\Animal.cs" />

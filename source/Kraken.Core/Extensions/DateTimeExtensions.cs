@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 
@@ -11,7 +12,7 @@ namespace Kraken.Core.Extensions
         {
             if (dateTime.HasValue)
             {
-                return dateTime.Value.ToShortDateString() + " " + dateTime.Value.ToShortTimeString();
+                return dateTime.Value.ToString(CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern) + " " + dateTime.Value.ToString(CultureInfo.CurrentCulture.DateTimeFormat.ShortTimePattern);
             }
             return valueWhenNull;
         }

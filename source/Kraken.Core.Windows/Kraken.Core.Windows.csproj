@@ -38,6 +38,7 @@
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,6 +54,7 @@
     <Compile Include="Processes\WinTailProcess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Threading\TryWithTimeout.cs" />
+    <Compile Include="Web\WcfClientLogic.cs" />
     <Compile Include="Win32\UacHelper.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -58,7 +58,6 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Caching" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -117,7 +116,6 @@
     <Compile Include="UI\Format.cs" />
     <Compile Include="UI\WarningText.cs" />
     <Compile Include="UI\WarningTextCollection.cs" />
-    <Compile Include="Web\WcfClientLogic.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
