@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 
@@ -88,7 +87,7 @@ namespace Kraken.Core.Extensions
             if (source.Length == 0)
                 return new List<string> { "" };
 
-            StringCollection words = new StringCollection();
+            var words = new List<string>();
             int wordStartIndex = 0;
 
             char[] letters = source.ToCharArray();

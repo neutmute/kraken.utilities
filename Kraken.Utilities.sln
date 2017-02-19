@@ -38,6 +38,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{347D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Tests.Xunit", "samples\Sample.Tests.Xunit\Sample.Tests.Xunit.csproj", "{322F5A6B-9ED4-463D-B42A-4F52346338BE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kraken.Core.Windows", "source\Kraken.Core.Windows\Kraken.Core.Windows.csproj", "{8224724D-FAB3-4050-820B-24F29FAB29FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -96,6 +98,10 @@ Global
 		{322F5A6B-9ED4-463D-B42A-4F52346338BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{322F5A6B-9ED4-463D-B42A-4F52346338BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{322F5A6B-9ED4-463D-B42A-4F52346338BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8224724D-FAB3-4050-820B-24F29FAB29FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8224724D-FAB3-4050-820B-24F29FAB29FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8224724D-FAB3-4050-820B-24F29FAB29FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8224724D-FAB3-4050-820B-24F29FAB29FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

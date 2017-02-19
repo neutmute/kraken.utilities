@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 
@@ -16,7 +15,7 @@ namespace Kraken.Core.Instrumentation
     public class Report : ReportBase
     {
         #region Properties
-        public NameValueCollection Data { get; private set; }
+        public List<KeyValuePair<string, string>> Data { get; private set; }
 
         public override bool HasContent
         {
@@ -27,7 +26,7 @@ namespace Kraken.Core.Instrumentation
         public Report()
         {
             // Content = new StringBuilder();
-            Data = new NameValueCollection();
+            Data = new List<KeyValuePair<string, string>>();
         }
     }
 }

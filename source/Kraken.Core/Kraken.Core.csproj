@@ -110,10 +110,6 @@
     <Compile Include="KrakenConfig.cs" />
     <Compile Include="KrakenDateTime.cs" />
     <Compile Include="KrakenException.cs" />
-    <Compile Include="Processes\NDesk.Options.cs" />
-    <Compile Include="Processes\WinTailProcess.cs" />
-    <Compile Include="Processes\KrakenProcess.cs" />
-    <Compile Include="Processes\WindowsExplorerProcess.cs" />
     <Compile Include="Properties\AssemblyInfoUnique.cs" />
     <Compile Include="Reflection\ReflectionService.cs" />
     <Compile Include="Resource.cs" />
@@ -124,7 +120,6 @@
     <Compile Include="UI\WarningText.cs" />
     <Compile Include="UI\WarningTextCollection.cs" />
     <Compile Include="Web\WcfClientLogic.cs" />
-    <Compile Include="Win32\UacHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />

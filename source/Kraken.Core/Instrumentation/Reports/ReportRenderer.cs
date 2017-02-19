@@ -92,7 +92,7 @@ namespace Kraken.Core.Instrumentation
         }
 
 
-        private string GetFormattedTable(string heading, NameValueCollection valuePairs)
+        private string GetFormattedTable(string heading, List<KeyValuePair<string, string>>  valuePairs)
         {
             //if (!IsHtmlRender)
             //{
@@ -104,9 +104,9 @@ namespace Kraken.Core.Instrumentation
             if (valuePairs != null && valuePairs.Count > 0)
             {
                 StringBuilder allLineData = new StringBuilder();
-                foreach (string key in valuePairs.Keys)
+                foreach (var vp in valuePairs)
                 {
-                    string nameValuePair = string.Format(TableFormatNameValue, key, valuePairs[key]);
+                    string nameValuePair = string.Format(TableFormatNameValue, vp.Key, vp.Value);
                     allLineData.Append(string.Format(TableFormatLine, nameValuePair));
                 }
                 content.AppendFormat(TableFormatTable, allLineData);

@@ -10,7 +10,7 @@ namespace Kraken.Core.Instrumentation
     public class ReportCollection : List<ReportBase>
     {
         #region Instance Methods
-        public void Add(int sortOrder, string heading, NameValueCollection nameValues)
+        public void Add(int sortOrder, string heading, KeyValuePair<string, string> nameValues)
         {
             Report report = new Report();
             report.Heading = heading;
