@@ -77,7 +77,6 @@
     <Compile Include="Attributes\EnumCodeAttribute.cs" />
     <Compile Include="Attributes\EnumDescriptionAttribute.cs" />
     <Compile Include="Attributes\EnumSortOrderAttribute.cs" />
-    <Compile Include="Caching\BaseMemoryCache.cs" />
     <Compile Include="Converters\Kelvin.cs" />
     <Compile Include="Converters\ObjectDump.cs" />
     <Compile Include="Converters\ObjectDumper.cs" />
@@ -113,7 +112,6 @@
     <Compile Include="Properties\AssemblyInfoUnique.cs" />
     <Compile Include="Reflection\ReflectionService.cs" />
     <Compile Include="Resource.cs" />
-    <Compile Include="Threading\TryWithTimeout.cs" />
     <Compile Include="TransactionManager.cs" />
     <Compile Include="UI\ActivityResult.cs" />
     <Compile Include="UI\Format.cs" />
@@ -145,9 +143,6 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
