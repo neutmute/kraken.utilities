@@ -9,7 +9,7 @@ namespace Kraken.Core
     public class ApplicationMetadata
     {
         #region Fields
-        private static readonly ILog Log = LogManager.GetCurrentClassLogger();
+        private static readonly ILog Log = LogManager.GetLogger<ApplicationMetadata>();
         #endregion
 
         #region Properties

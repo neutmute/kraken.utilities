@@ -10,7 +10,7 @@ namespace Kraken.Tests.Tests
     [TestFixture]
     public abstract class Fixture
     {
-        protected static readonly ILog Log = LogManager.GetCurrentClassLogger();
+        protected static readonly ILog Log = LogManager.GetLogger<Fixture>();
         /// <summary>
         /// Default instance on the fixture for potentially easier syntax
         /// </summary>

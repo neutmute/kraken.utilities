@@ -19,7 +19,7 @@ namespace Kraken.Net
         private ConcurrentQueue<PingRequest> _workQueue;
         private List<PingRequest> _pingRequests;
         private List<PingWorker> _pingWorkers;
-        private static readonly ILog Log = LogManager.GetCurrentClassLogger();
+        private static readonly ILog Log = LogManager.GetLogger("NetworkScanner");
         #endregion
 
         #region Events

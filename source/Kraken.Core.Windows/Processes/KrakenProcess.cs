@@ -28,7 +28,7 @@ namespace Kraken.Core
 
         public event EventHandler Exited;
 
-        private static readonly ILog Log = LogManager.GetCurrentClassLogger();
+        private static readonly ILog Log = LogManager.GetLogger< KrakenProcess>();
 
         #endregion
 

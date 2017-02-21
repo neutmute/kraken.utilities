@@ -11,7 +11,7 @@ namespace Kraken.Net.Scanner
     {
         #region Fields/Events
 
-        private static readonly ILog _log = LogManager.GetCurrentClassLogger();
+        private static readonly ILog _log = LogManager.GetLogger< NetworkTestWorker>();
 
         public event EventHandler<NetworkTestResultEventArgs> Completed;
         protected PingRequest PingRequest { get; set; }

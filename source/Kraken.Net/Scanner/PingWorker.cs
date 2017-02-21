@@ -11,7 +11,7 @@ namespace Kraken.Net
     public class PingWorker : IDisposable
     {
         #region Fields
-        private static readonly ILog Log = LogManager.GetCurrentClassLogger();
+        private static readonly ILog Log = LogManager.GetLogger< PingWorker>();
         private NetworkTestWorker _networkTestWorker;
         private readonly ConcurrentQueue<PingRequest> _workQueue;
         private CancellationToken _cancellationToken;

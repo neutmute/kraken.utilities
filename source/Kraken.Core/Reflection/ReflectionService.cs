@@ -10,7 +10,7 @@ namespace Kraken.Core
 {
     public class ReflectionService
     {
-        private static readonly ILog Log = LogManager.GetCurrentClassLogger();
+        private static readonly ILog Log = LogManager.GetLogger< ReflectionService>();
 
 
         public List<Assembly> GetLocalAssemblies()

@@ -10,7 +10,7 @@ namespace Kraken.Core
     public class FileArchiver
     {
         #region Fields
-        private static readonly ILog Log = LogManager.GetCurrentClassLogger();
+        private static readonly ILog Log = LogManager.GetLogger< FileArchiver>();
         #endregion
         
         #region Static Methods

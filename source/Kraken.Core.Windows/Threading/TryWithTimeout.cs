@@ -16,7 +16,7 @@ namespace Kraken.Core.Threading
     /// </remarks>
     public static class TryWithTimeout
     {
-        private static readonly ILog Log = LogManager.GetCurrentClassLogger();
+        private static readonly ILog Log = LogManager.GetLogger("TryWithTimeout");
 
         public static T Invoke<T>(Func<CancelEventArgs, T> function, TimeSpan timeout)
         {

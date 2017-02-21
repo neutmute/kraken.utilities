@@ -14,7 +14,7 @@ namespace Kraken.Core
     {
         #region Fields
 
-        private static readonly ILog Log = LogManager.GetCurrentClassLogger();
+        private static readonly ILog Log = LogManager.GetLogger("UacHelper");
         private const string uacRegistryKey = "Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System";
         private const string uacRegistryValue = "EnableLUA";
 

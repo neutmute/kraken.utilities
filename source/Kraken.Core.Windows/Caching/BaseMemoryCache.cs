@@ -9,7 +9,7 @@ namespace Kraken.Core
     {
         #region Fields
 
-        private static readonly ILog Log = LogManager.GetCurrentClassLogger();
+        private static readonly ILog Log = LogManager.GetLogger< BaseMemoryCache<TKey, TItem>>();
         private ObjectCache _cache;
         readonly CacheItemPolicy _policy;
 

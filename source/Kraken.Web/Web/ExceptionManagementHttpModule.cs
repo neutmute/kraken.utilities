@@ -11,7 +11,7 @@ namespace Kraken.Web
     /// </summary>
     class ExceptionManagementHttpModule : IHttpModule
     {
-        static ILog log = LogManager.GetCurrentClassLogger();
+        static ILog log = LogManager.GetLogger< ExceptionManagementHttpModule>();
         #region IHttpModule Members
 
         public void Init(HttpApplication context)

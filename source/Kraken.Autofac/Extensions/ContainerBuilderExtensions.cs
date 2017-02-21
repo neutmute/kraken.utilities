@@ -11,7 +11,7 @@ namespace Kraken.Core.ExtensionMethods
 {
     public static class ContainerBuilderExtensions
     {
-        private static readonly ILog Log = LogManager.GetCurrentClassLogger();
+        private static readonly ILog Log = LogManager.GetLogger("ContainerBuilderExtensions");
 
         public static void RegisterAllModules(this ContainerBuilder containerBuilder)
         {

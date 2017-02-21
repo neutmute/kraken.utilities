@@ -29,7 +29,7 @@ namespace Kraken.Core.Instrumentation
         private readonly List<PerformancePoint> _dataPoints;
         private readonly Dictionary<string, PerformancePoint> _currentLogs;
         private string _mostRecentLogName;
-        private static readonly ILog Log = LogManager.GetCurrentClassLogger();
+        private static readonly ILog Log = LogManager.GetLogger< PerformanceMonitor>();
         #endregion
 
         #region Properties

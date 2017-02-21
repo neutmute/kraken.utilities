@@ -25,7 +25,7 @@ namespace Kraken.Web
     [AttributeUsage(AttributeTargets.Class)]
     public class KrakenWcfErrorHandler : Attribute, IServiceBehavior, IErrorHandler
     {
-        private static readonly ILog Log = LogManager.GetCurrentClassLogger();
+        private static readonly ILog Log = LogManager.GetLogger< KrakenWcfErrorHandler>();
 
         /// <summary>
         /// Where to dump captures of bad WCF requests
