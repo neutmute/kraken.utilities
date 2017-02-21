@@ -15,7 +15,7 @@ namespace Kraken.Tests.NUnit
     [TestFixture]
     public abstract class KrakenFixture
     {
-        private static readonly ILog _Log = LogManager.GetCurrentClassLogger();
+        private static readonly ILog _Log = LogManager.GetLogger<KrakenFixture>();
 
         private bool _isTestTempDirectoryCleaned;
         private TransactionScope _transactionScope;
