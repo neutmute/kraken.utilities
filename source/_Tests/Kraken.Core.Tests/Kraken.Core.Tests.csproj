@@ -117,10 +117,6 @@
       <Name>Kraken.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Kelvin\namespacedCat.txt" />
-    <EmbeddedResource Include="Resources\Kelvin\plainCat.txt" />
-  </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">

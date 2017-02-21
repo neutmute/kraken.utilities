@@ -16,7 +16,7 @@ namespace Kraken.Core.Tests
         [Test]
         public void FromXmlFile()
         {
-            Animal cat = Kelvin<Animal>.FromXml(Resource.ExportToString("Kraken.Core.Tests.Resources.Kelvin.plainCat.txt"));
+            Animal cat = Kelvin<Animal>.FromXml(Resource.ExportToString("Kraken.Core.Windows.Tests.Resources.Kelvin.plainCat.txt"));
             // CodeGen.GenerateAssertions(cat, "cat"); // The following assertions were generated on 30-Jun-2011
             #region Generated Assertions
             Assert.AreEqual(4, cat.Legs);
@@ -47,7 +47,7 @@ namespace Kraken.Core.Tests
             nameSpaces.Add("ak", "urn:kingdom:animal:vertebrate");
             Kelvin<Animal>.ToXmlFile(cat, testFile, nameSpaces);
 
-            AssertTool.ResourceEquals(typeof(Animal).Assembly, "Kraken.Core.Tests.Resources.Kelvin.namespacedCat.txt", new FileInfo(testFile));
+            AssertTool.ResourceEquals(typeof(Animal).Assembly, "Kraken.Core.Windows.Tests.Resources.Kelvin.namespacedCat.txt", new FileInfo(testFile));
         }
     }
 }
