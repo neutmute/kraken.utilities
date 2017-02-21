@@ -165,7 +165,8 @@ namespace Kraken.Core
                     }
                     else if (timeSpan.TotalMilliseconds >= 1)
                     {
-                        sb.AppendFormat("{0} {1}s", timeSpan.TotalMilliseconds.ToString("N0"), labels.Millisecond);
+                        var plural = labels.Millisecond == "ms" ? string.Empty : "s";
+                        sb.AppendFormat("{0} {1}{2}", timeSpan.TotalMilliseconds.ToString("N0"), labels.Millisecond, plural);
                     }
                     else
                     {
