@@ -77,7 +77,7 @@ namespace Kraken.Core
             return allAssemblyTypes;
         }
 
-        public List<Type> GetImplementationsOf<T>(List<Assembly> assemblies)
+        public List<Type> GetImplementationsOf<T>(params Assembly[] assemblies)
         {
             List<Type> allTypes = GetAllTypes(assemblies);
             return GetImplementationsOf<T>(allTypes);
