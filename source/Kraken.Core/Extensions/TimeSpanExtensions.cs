@@ -5,8 +5,24 @@ using System.Text;
 
 namespace Kraken.Core
 {
-    [Flags]
-    public enum HumanReadableTimeSpanOptions
+    public class HumanReadableTimeSpanOptions
+    {
+        public HumanReadableLabelMode LabelMode { get; set; }
+
+        public HumanReadableTimeLabels CustomLabels { get; set; }
+    }
+
+    public class HumanReadableTimeLabels
+    {
+
+        public string Day { get; set; }
+        public string Hour { get; set; }
+        public string Minute { get; set; }
+        public string Second { get; set; }
+        public string Millisecond { get; set; }
+    }
+
+    public enum HumanReadableLabelMode
     {
         /// <summary>
         /// Hours Minutes Seconds
@@ -17,18 +33,36 @@ namespace Kraken.Core
         /// Hrs Mins Secs
         /// </summary>
         Abbreviated,
+
+        Custom
     }
 
     public static class TimeSpanExtensions
     {
+        public static string ToHumanReadable(this TimeSpan? timeSpan)
+        {
+            if (!timeSpan.HasValue)
+            {
+                return "<null>";
+            }
+            return ToHumanReadable(timeSpan.Value, HumanReadableLabelMode.Verbose);
+        }
+
         /// <summary>
         /// Converts a timespan to a human readable format,
         /// eg. d days, h hours, m mins, s secs.
         /// </summary>
-        public static string ToHumanReadable(this TimeSpan timeSpan, int maxResolutionDepth = 99)
+        public static string ToHumanReadable(this TimeSpan timeSpan)
         {
-            return ToHumanReadable(timeSpan, HumanReadableTimeSpanOptions.Verbose, maxResolutionDepth);
+            return ToHumanReadable(timeSpan, HumanReadableLabelMode.Verbose);
         }
+
+        public static string ToHumanReadable(this TimeSpan timeSpan, HumanReadableLabelMode labelMode)
+        {
+            var options2 = new HumanReadableTimeSpanOptions { LabelMode = labelMode };
+            return ToHumanReadable(timeSpan, options2);
+        }
+
 
         /// <summary>
         /// Converts a timespan to a human readable format,
@@ -38,49 +72,50 @@ namespace Kraken.Core
         /// http://www.codekeep.net/snippets/dc060497-9e0c-4a60-b1ed-aff6127fb80b.aspx
         /// </summary>
         /// <returns>Human readable time duration.</returns>
-        public static string ToHumanReadable(this TimeSpan timeSpan, HumanReadableTimeSpanOptions options, int maxResolutionDepth = 99)
+        public static string ToHumanReadable(this TimeSpan timeSpan, HumanReadableTimeSpanOptions options)
         {
             decimal seconds = Convert.ToDecimal(timeSpan.TotalSeconds);
-            string dayLabel = "day";
-            string hourLabel = "hour";
-            string minuteLabel = "minute";
-            string secondLabel = "second";
-            string millisecondLabel = "milliseconds";
-
-            var timeSinceEpoch = SystemDate.Now - DateTime.MinValue;
-            if (timeSinceEpoch.Days == timeSpan.Days)
+            var labels = new HumanReadableTimeLabels();
+            switch (options.LabelMode)
             {
-                return "never";
+                case HumanReadableLabelMode.Abbreviated:
+                    labels.Day = "day";
+                    labels.Hour = "hr";
+                    labels.Minute = "min";
+                    labels.Second = "sec";
+                    labels.Millisecond = "ms";
+                    break;
+                case HumanReadableLabelMode.Verbose:
+                    labels.Day = "day";
+                    labels.Hour = "hour";
+                    labels.Minute = "minute";
+                    labels.Second = "second";
+                    labels.Millisecond = "millisecond";
+                    break;
+                case HumanReadableLabelMode.Custom:
+                    Guard.Null(options.CustomLabels, "CustomLabels property required");
+                    labels = options.CustomLabels;
+                    break;
+                default:
+                    throw KrakenException.Create("A new label mode?");
             }
-
-            if (options == HumanReadableTimeSpanOptions.Abbreviated)
-            {
-                dayLabel = "day";
-                hourLabel = "hr";
-                minuteLabel = "min";
-                secondLabel = "sec";
-                millisecondLabel = "ms";
-            }
-
-            var resolutionDepth = 0;
 
             if (seconds == 0)
             {
-                return string.Format("0 {0}s", secondLabel);
+                return $"0 {labels.Second}s";
             }
 
             StringBuilder sb = new StringBuilder();
             if (seconds >= 86400)
             {
                 sb.AppendFormat("{0} {2}{1}"
-                    , (long)seconds / 86400
+                    , (int)seconds / 86400
                     , seconds >= 86400 * 2 ? "s" : string.Empty
-                    , dayLabel);
+                    , labels.Day);
 
-                seconds -= (long)(seconds / 86400) * 86400;
-                resolutionDepth++;
+                seconds -= (int)(seconds / 86400) * 86400;
             }
-            if (seconds >= 3600 && resolutionDepth < maxResolutionDepth)
+            if (seconds >= 3600)
             {
                 if (sb.Length > 0)
                 {
@@ -89,13 +124,12 @@ namespace Kraken.Core
                 sb.AppendFormat(
                     "{0} {1}{2}"
                     , (int)seconds / 3600
-                    , hourLabel
+                    , labels.Hour
                     , seconds >= 3600 * 2 ? "s" : string.Empty
                     );
                 seconds -= (int)(seconds / 3600) * 3600;
-                resolutionDepth++;
             }
-            if (seconds >= 60 && resolutionDepth< maxResolutionDepth)
+            if (seconds >= 60)
             {
                 if (sb.Length > 0)
                 {
@@ -104,40 +138,39 @@ namespace Kraken.Core
                 sb.AppendFormat(
                     "{0} {1}{2}"
                     , (int)seconds / 60
-                     , minuteLabel
+                     , labels.Minute
                     , seconds >= 60 * 2 ? "s" : string.Empty
                     );
                 seconds -= (int)(seconds / 60) * 60;
-                resolutionDepth++;
             }
-            if (seconds > 0 && resolutionDepth < maxResolutionDepth)
+            if (seconds > 0)
             {
                 if (sb.Length > 0)
                 {
                     sb.AppendFormat(
                         ", {0} {1}{2}"
                         , (int)seconds
-                        , secondLabel
+                        , labels.Second
                         , seconds == 1 ? string.Empty : "s");
-                    resolutionDepth++;
                 }
                 else
                 {
                     if (seconds == (int)seconds)
                     {
-                        sb.AppendFormat("{0} {1}s", (int)seconds, secondLabel);
+                        sb.AppendFormat("{0} {1}s", (int)seconds, labels.Second);
                     }
-                    else if (seconds > Decimal.One)
+                    else if (seconds > decimal.One)
                     {
-                        sb.AppendFormat("{0} {1}s", seconds.ToString("N2"), secondLabel);
+                        sb.AppendFormat("{0} {1}s", seconds.ToString("N2"), labels.Second);
                     }
                     else if (timeSpan.TotalMilliseconds >= 1)
                     {
-                        sb.AppendFormat("{0} {1}", timeSpan.TotalMilliseconds.ToString("N0"), millisecondLabel);
+                        sb.AppendFormat("{0} {1}s", timeSpan.TotalMilliseconds.ToString("N0"), labels.Millisecond);
                     }
                     else
                     {
-                        sb.AppendFormat("{0} {1}", timeSpan.TotalMilliseconds.ToString("N2"), millisecondLabel);
+                        var plural = Convert.ToDecimal(timeSpan.TotalMilliseconds) == Decimal.One ? "" : "s";
+                        sb.AppendFormat("{0} {1}{2}", timeSpan.TotalMilliseconds.ToString("N2"), labels.Millisecond, plural);
                     }
                 }
             }

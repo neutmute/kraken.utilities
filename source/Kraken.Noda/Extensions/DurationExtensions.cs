@@ -6,12 +6,12 @@ namespace Kraken.Core
     {
         public static string ToHumanReadable(this Duration duration, int maxResolutionDepth = 99)
         {
-            return duration.ToTimeSpan().ToHumanReadable(maxResolutionDepth);
+            return duration.ToTimeSpan().ToHumanReadable();
         }
 
         public static string ToHumanReadable(this Duration duration, HumanReadableTimeSpanOptions options, int maxResolutionDepth = 99)
         {
-            return duration.ToTimeSpan().ToHumanReadable(options, maxResolutionDepth);
+            return duration.ToTimeSpan().ToHumanReadable(options);
         }
     }
 }
