@@ -74,14 +74,15 @@ function executeTests{
         $testResultformat = ";format=AppVeyor"
         $nunitConsole = "nunit3-console"
     }
-
-    & $nunitConsole .\Source\_Tests\Kraken.Core.Tests\bin\$configuration\Kraken.Core.Tests.dll --result=$outputFolder\Kraken.Core.Tests.xml$testResultformat
-
-    checkExitCode
-
-    #dotnet test .\Source\NetStandard\Loggly.Tests\project.json -c $configuration --result=.\Source\NetStandard\Loggly.#Tests\bin\$configuration\nunit-netstandard-results.xml
-
-    checkExitCode
+	
+	& $nunitConsole .\Source\_Tests\Kraken.Core.Tests\bin\Release\Kraken.Core.Tests.dll `
+					.\Source\_Tests\Kraken.Core.Windows.Tests\bin\Release\Kraken.Core.Windows.Tests.dll `
+					.\Source\_Tests\Kraken.Net.Tests\bin\Release\Kraken.Net.Tests.dll `
+					.\Source\_Tests\Kraken.Tests.Tests\bin\Release\Kraken.Tests.Tests.dll `
+					.\Source\_Tests\Kraken.Web.Tests\bin\Release\Kraken.Web.Tests.dll `
+					--result=$outputFolder\Kraken.Tests.xml$testResultformat
+	
+	checkExitCode
 }
 
 init

@@ -13,7 +13,7 @@ namespace UnitTests
     [TestFixture]
     public class ObjectWalkerFixture : Fixture
     {
-        [Ignore("Shows FAilure")]
+        [Ignore("Shows Failure")]
         [Test]
         public void IntArray()
         {
@@ -25,7 +25,7 @@ namespace UnitTests
             Assert.AreEqual("son,father,grandfather,greatGrandfather,", walkLog.ToString());
         }
 
-        [Ignore("Shows FAilure")]
+        [Ignore("Shows Failure")]
         [Test]
         public void ByteArray()
         {
