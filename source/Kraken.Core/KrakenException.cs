@@ -17,7 +17,7 @@ namespace Kraken.Core
         /// <summary>
         /// Use the static constructors
         /// </summary>
-        protected KrakenException(string message)
+        public KrakenException(string message)
             : base(message)
         {
         }

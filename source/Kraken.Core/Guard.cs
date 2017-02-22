@@ -11,7 +11,7 @@ namespace Kraken.Core
         {
             if (string.IsNullOrEmpty(value))
             {
-                throw new Exception(message);
+                throw new KrakenException(message);
             }
         }
 
@@ -19,7 +19,7 @@ namespace Kraken.Core
         {
             if (Convert.ToInt32(value) == 0)
             {
-                throw new Exception("Cannot be zero");
+                throw new KrakenException("Cannot be zero");
             }
         }
 
@@ -27,7 +27,7 @@ namespace Kraken.Core
         {
             if (conditionThatShouldBeFalse)
             {
-                throw new Exception(message);
+                throw new KrakenException(message);
             }
         }
 
@@ -35,7 +35,7 @@ namespace Kraken.Core
         {
             if (!conditionThatShouldBeTrue)
             {
-                throw new Exception(message);
+                throw new KrakenException(message);
             }
         }
 
@@ -44,7 +44,7 @@ namespace Kraken.Core
         {
             if (value == null)
             {
-                throw new Exception(message);
+                throw new KrakenException(message);
             }
         }
     }

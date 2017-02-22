@@ -24,7 +24,7 @@ namespace Kraken.Core.Tests
             #endregion
         }
 
-        [Ignore("different in opencover for some reason")]
+        //[Ignore("different in opencover for some reason")]
         [Test]
         public void ToXmlFile()
         {
@@ -32,7 +32,7 @@ namespace Kraken.Core.Tests
             Animal cat = Animal.GetCat();
             Kelvin<Animal>.ToXmlFile(cat, testFile);
 
-            AssertTool.ResourceEquals("Kraken.Core.Tests.Resources.Kelvin.plainCat.txt", new FileInfo(testFile));
+            AssertTool.ResourceEquals(this.GetType().Assembly, "Kraken.Core.Windows.Tests.Resources.Kelvin.plainCat.txt", new FileInfo(testFile));
         }
 
 
@@ -47,7 +47,7 @@ namespace Kraken.Core.Tests
             nameSpaces.Add("ak", "urn:kingdom:animal:vertebrate");
             Kelvin<Animal>.ToXmlFile(cat, testFile, nameSpaces);
 
-            AssertTool.ResourceEquals(typeof(Animal).Assembly, "Kraken.Core.Windows.Tests.Resources.Kelvin.namespacedCat.txt", new FileInfo(testFile));
+            AssertTool.ResourceEquals(this.GetType().Assembly, "Kraken.Core.Windows.Tests.Resources.Kelvin.namespacedCat.txt", new FileInfo(testFile));
         }
     }
 }
