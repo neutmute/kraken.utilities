@@ -19,7 +19,7 @@ namespace Kraken.Core.Tests
 
         static Fixture()
         {
-            TestFrameworkFacade.AssertEqual = Assert.AreEqual;
+            TestFrameworkFacade.AssertEqual = (o1, o2, s) => { Assert.AreEqual(o1, o2, s); };
             TestFrameworkFacade.AssertFail = Assert.Fail;
             SetTestTempDirectory(@"D:\Logs\Tests\Framework.Core");
         }

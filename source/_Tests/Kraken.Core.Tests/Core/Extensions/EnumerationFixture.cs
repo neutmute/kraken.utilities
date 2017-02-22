@@ -19,11 +19,10 @@ namespace Kraken.Core.Tests.Extensions
             Assert.AreEqual(colour, Colour.Pink);
         }
 
-        [ExpectedException(typeof(ArgumentException))]
         [Test]
         public void FromValueBad()
         {
-            Colour colour = Enumeration.FromValue<Colour>("Pi4nk");
+            Assert.Throws<ArgumentException>(()=> Enumeration.FromValue<Colour>("Pi4nk"));
         }
 
         //[Test]

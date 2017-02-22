@@ -122,7 +122,7 @@ namespace Kraken.Tests.NUnit
             _isContainerBuilt = false;
             RegisterAutofacModules();
 
-            TestFrameworkFacade.AssertEqual = Assert.AreEqual;
+            TestFrameworkFacade.AssertEqual = (o1, o2, s) => {Assert.AreEqual(o1, o2, s);};
 
             if (EnableTransactionScope)
             {

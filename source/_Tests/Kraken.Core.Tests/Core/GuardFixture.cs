@@ -9,27 +9,24 @@ namespace Kraken.Core.Tests.Core
 {
     public class GuardFixture : Fixture
     {
-        [ExpectedException(typeof(KrakenException))]
         [Test]
         public void EnumZero()
         {
-            Guard.EnumIsZero(Colour.Unknown);
+            Assert.Throws<KrakenException>( ()=> Guard.EnumIsZero(Colour.Unknown));
         }
-
-        [ExpectedException(typeof(KrakenException))]
+        
         [Test]
         public void That()
         {
             var value = -1;
-            Guard.That(value > 0, "WTF?");
+            Assert.Throws<KrakenException>(() => Guard.That(value > 0, "WTF?"));
         }
-
-        [ExpectedException(typeof(KrakenException))]
+        
         [Test]
         public void Against()
         {
             var uninitialised = int.MinValue;
-            Guard.Against(uninitialised == int.MinValue, "WTF?");
+            Assert.Throws<KrakenException>(() => Guard.Against(uninitialised == int.MinValue, "WTF?"));
         }
 
         [Test]
@@ -41,10 +38,9 @@ namespace Kraken.Core.Tests.Core
 
 
         [Test]
-        [ExpectedException(typeof(KrakenException), ExpectedMessage = "taskInfo.InputParam is required")]
         public void NullOrEmpty()
         {
-            Guard.NullOrEmpty("", "taskInfo.InputParam is required");
+            Assert.Throws<KrakenException>(() => Guard.NullOrEmpty("", "taskInfo.InputParam is required"));
         }
 
     }

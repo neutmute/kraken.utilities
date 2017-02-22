@@ -46,8 +46,7 @@ namespace UnitTests
 
             ObjectComparer.AssertEqual(chain1, chain2);
         }
-
-        [ExpectedException(typeof(AssertionException))]
+        
         [Test]
         public void AreNotEqual()
         {
@@ -55,7 +54,7 @@ namespace UnitTests
             ParentChain chain2 = ParentChain.GetGrandFatherSample();
             chain2.Name = "bfff";
 
-            ObjectComparer.AssertNotEqual(chain1, chain2);
+            Assert.Throws< AssertionException>(()=> ObjectComparer.AssertNotEqual(chain1, chain2));
         }
     }
 }

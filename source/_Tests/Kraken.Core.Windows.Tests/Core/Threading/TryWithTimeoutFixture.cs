@@ -10,13 +10,12 @@ namespace Kraken.Core.Tests.Core.Threading
 {
     public class TryWithTimeoutFixture : Fixture
     {
-        [ExpectedException(ExpectedException= typeof(TimeoutException))]
         [Test]
         public void TryInvoke_ThrowsWithTimeout()
         {
             Action action = () => Thread.Sleep(500);
             var timeout = TimeSpan.FromMilliseconds(100);
-            TryWithTimeout.TryInvoke(action, timeout);
+            Assert.Throws< TimeoutException>(()=>TryWithTimeout.TryInvoke(action, timeout));
         }
 
         [Test]
