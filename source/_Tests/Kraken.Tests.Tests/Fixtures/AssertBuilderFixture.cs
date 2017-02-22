@@ -501,7 +501,7 @@ Assert.AreEqual(Convert.ToDateTime(""29-Mar-2010 16:56:00.500""), target.Rows[2]
             Assert.AreEqual(@"Assert.AreEqual(3, target.Rows.Count);
 Assert.AreEqual(""Red"", target.Rows[0][""Name""]);
 Assert.AreEqual(""Green"", target.Rows[1][""Name""]);
-Assert.AreEqual(""Blue"", target.Rows[2][""Name""]);", codeGen.GetEmittedCode());
+Assert.AreEqual(""Blue"", target.Rows[2][""Name""]);".NormaliseCrlf(), codeGen.GetEmittedCode().NormaliseCrlf());
 
         }
 
