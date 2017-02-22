@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Kraken.Core.Instrumentation;
-using Kraken.Core.Tests.Core.Extensions;
+using Kraken.Tests.Extensions;
 using NUnit.Framework;
 
 namespace Kraken.Core.Tests.Core.Instrumentation

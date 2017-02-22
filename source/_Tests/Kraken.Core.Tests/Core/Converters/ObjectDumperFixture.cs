@@ -4,8 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using Kraken.Core.Tests.TestClasses;
-using Kraken.Core;
-using Kraken.Core.Tests.Core.Extensions;
+using Kraken.Tests.Extensions;
 using NUnit.Framework;
 
 namespace Kraken.Core.Tests

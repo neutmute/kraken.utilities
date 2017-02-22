@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Kraken.Tests;
 using Kraken.Tests.Tests;
 using Common.Logging;
+using Kraken.Tests.Extensions;
 using NUnit.Framework;
 using UnitTests.TestClasses;
 
@@ -137,7 +138,8 @@ namespace UnitTests
             GetAssertBuilderOutput(codeGen, light);
 
             Assert.AreEqual(@"Assert.AreEqual(true, target.IsOn);
-Assert.AreEqual(100, target.DimmerPosition);", codeGen.GetEmittedCode());
+Assert.AreEqual(100, target.DimmerPosition);".NormaliseCrlf()
+            , codeGen.GetEmittedCode().NormaliseCrlf());
         }
 
 	    [Test]
@@ -151,7 +153,8 @@ Assert.AreEqual(100, target.DimmerPosition);", codeGen.GetEmittedCode());
 			GetAssertBuilderOutput(codeGen, cat);
 
 			Assert.AreEqual(@"Assert.AreEqual(3, target.LegCount);
-Assert.AreEqual(""meow"", target.Sound);", codeGen.GetEmittedCode());
+Assert.AreEqual(""meow"", target.Sound);".NormaliseCrlf()
+            , codeGen.GetEmittedCode().NormaliseCrlf());
 		}
 
 		[Test]
@@ -215,7 +218,8 @@ Assert.AreEqual(""meow"", target.Sound);", codeGen.GetEmittedCode());
 			GetAssertBuilderOutput(codeGen, input);
 
 			Assert.AreEqual(@"Assert.AreEqual(@""this tests that the 
- correct escape sequence is used over multiple lines. """"Here is a quoted message"""" "", target);", codeGen.GetEmittedCode());
+ correct escape sequence is used over multiple lines. """"Here is a quoted message"""" "", target);".NormaliseCrlf()
+            , codeGen.GetEmittedCode().NormaliseCrlf());
 
 		}
 
@@ -226,7 +230,7 @@ Assert.AreEqual(""meow"", target.Sound);", codeGen.GetEmittedCode());
 			GetAssertBuilderOutput(codeGen, typeof(Configuration));
 
 			Assert.AreEqual(@"Assert.AreEqual(""value1"", Configuration.ConfigValue1);
-Assert.AreEqual(-1, Configuration.ConfigValue2);", codeGen.GetEmittedCode());
+Assert.AreEqual(-1, Configuration.ConfigValue2);".NormaliseCrlf(), codeGen.GetEmittedCode().NormaliseCrlf());
 		}
 
 		[Test]
@@ -254,7 +258,7 @@ enumeratorPointer = enumerator.MoveNext();
 Assert.AreEqual(5, enumeratorPointer);
 enumeratorPointer = enumerator.MoveNext();
 Assert.AreEqual(6, enumeratorPointer);
-enumeratorPointer = enumerator.MoveNext();", codeGen.GetEmittedCode());
+enumeratorPointer = enumerator.MoveNext();".NormaliseCrlf(), codeGen.GetEmittedCode().NormaliseCrlf());
         }
 
         /// <summary>
@@ -298,7 +302,7 @@ enumeratorPointer = enumerator.MoveNext();", codeGen.GetEmittedCode());
             Assert.AreEqual(@"Assert.AreEqual(3, target.Count);
 Assert.AreEqual(4, target[0].LegCount);
 Assert.AreEqual(2, target[1].LegCount);
-Assert.AreEqual(3, target[2].LegCount);", codeGen.GetEmittedCode());
+Assert.AreEqual(3, target[2].LegCount);".NormaliseCrlf(), codeGen.GetEmittedCode().NormaliseCrlf());
         }
 
 	    [Test]
@@ -324,7 +328,7 @@ Assert.AreEqual(3, ((UnitTests.Animal)target[2]).LegCount);
 Assert.AreEqual(null, ((UnitTests.Animal)target[2]).Sound);
 Assert.AreEqual(9, target.TotalLegs);
 Assert.AreEqual(4, target.Capacity);
-Assert.AreEqual(3, target.Count);", codeGen.GetEmittedCode());
+Assert.AreEqual(3, target.Count);".NormaliseCrlf(), codeGen.GetEmittedCode().NormaliseCrlf());
 
         }
 
@@ -351,7 +355,7 @@ Assert.AreEqual(3, ((UnitTests.Animal)target[2]).LegCount);
 Assert.AreEqual(null, ((UnitTests.Animal)target[2]).Sound);
 Assert.AreEqual(9, target.TotalLegs);
 Assert.AreEqual(4, target.Capacity);
-Assert.AreEqual(3, target.Count);", codeGen.GetEmittedCode());
+Assert.AreEqual(3, target.Count);".NormaliseCrlf(), codeGen.GetEmittedCode().NormaliseCrlf());
 
         }
 
@@ -375,7 +379,7 @@ Assert.AreEqual(3, target[2].LegCount);
 Assert.AreEqual(null, target[2].Sound);
 Assert.AreEqual(9, target.TotalLegs);
 Assert.AreEqual(4, target.Capacity);
-Assert.AreEqual(3, target.Count);", codeGen.GetEmittedCode());
+Assert.AreEqual(3, target.Count);".NormaliseCrlf(), codeGen.GetEmittedCode().NormaliseCrlf());
         }
         
         [Test]
@@ -398,7 +402,7 @@ Assert.AreEqual(3, target.Animals[2].LegCount);
 Assert.AreEqual(null, target.Animals[2].Sound);
 Assert.AreEqual(9, target.Animals.TotalLegs);
 Assert.AreEqual(4, target.Animals.Capacity);
-Assert.AreEqual(3, target.Animals.Count);", codeGen.GetEmittedCode());
+Assert.AreEqual(3, target.Animals.Count);".NormaliseCrlf(), codeGen.GetEmittedCode().NormaliseCrlf());
         }
 
         [Test]
@@ -415,7 +419,7 @@ Assert.AreEqual(3, target.Animals.Count);", codeGen.GetEmittedCode());
             Assert.AreEqual(@"Assert.AreEqual(3, target.Count);
 Assert.AreEqual(4, target[0].LegCount);
 Assert.AreEqual(2, target[1].LegCount);
-Assert.AreEqual(3, target[2].LegCount);", codeGen.GetEmittedCode());
+Assert.AreEqual(3, target[2].LegCount);".NormaliseCrlf(), codeGen.GetEmittedCode().NormaliseCrlf());
         }
 
 	    [Test]
@@ -433,13 +437,13 @@ Assert.AreEqual(3, target[2].LegCount);", codeGen.GetEmittedCode());
 Assert.AreEqual(""son"", target.Child.Child.Child.Name);
 Assert.AreEqual(""father"", target.Child.Child.Name);
 Assert.AreEqual(""grandfather"", target.Child.Name);
-Assert.AreEqual(""greatGrandfather"", target.Name);", codeGen.GetEmittedCode());
+Assert.AreEqual(""greatGrandfather"", target.Name);".NormaliseCrlf(), codeGen.GetEmittedCode().NormaliseCrlf());
 
             options.MaximumTraversalDepth = 2;
             GetAssertBuilderOutput(codeGen, greatGrandfather, options);
 
             Assert.AreEqual(@"Assert.AreEqual(""grandfather"", target.Child.Name);
-Assert.AreEqual(""greatGrandfather"", target.Name);", codeGen.GetEmittedCode());
+Assert.AreEqual(""greatGrandfather"", target.Name);".NormaliseCrlf(), codeGen.GetEmittedCode().NormaliseCrlf());
         }
 
         [Test]
@@ -454,7 +458,7 @@ Assert.AreEqual(""greatGrandfather"", target.Name);", codeGen.GetEmittedCode());
 
             Assert.AreEqual(@"Assert.AreEqual(1, target[""Id""]);
 Assert.AreEqual(""Red"", target[""Name""]);
-Assert.AreEqual(""FF0000"", target[""Rgb""]);", codeGen.GetEmittedCode());
+Assert.AreEqual(""FF0000"", target[""Rgb""]);".NormaliseCrlf(), codeGen.GetEmittedCode().NormaliseCrlf());
         }
 
 	    [Test]
@@ -477,7 +481,7 @@ Assert.AreEqual(Convert.ToDateTime(""28-Mar-2010 16:56:00.000""), target.Rows[1]
 Assert.AreEqual(3, target.Rows[2][""Id""]);
 Assert.AreEqual(""Blue"", target.Rows[2][""Name""]);
 Assert.AreEqual(""0000FF"", target.Rows[2][""Rgb""]);
-Assert.AreEqual(Convert.ToDateTime(""29-Mar-2010 16:56:00.500""), target.Rows[2][""DateCreated""]);", codeGen.GetEmittedCode());
+Assert.AreEqual(Convert.ToDateTime(""29-Mar-2010 16:56:00.500""), target.Rows[2][""DateCreated""]);".NormaliseCrlf(), codeGen.GetEmittedCode().NormaliseCrlf());
 
 
         }
@@ -513,7 +517,7 @@ Assert.AreEqual(""Blue"", target.Rows[2][""Name""]);", codeGen.GetEmittedCode())
 Assert.AreEqual(""Dog"", target[0]);
 Assert.AreEqual(""Cat"", target[1]);
 Assert.AreEqual(""Horse"", target[2]);
-Assert.AreEqual(""Bird"", target[3]);", codeGen.GetEmittedCode());
+Assert.AreEqual(""Bird"", target[3]);".NormaliseCrlf(), codeGen.GetEmittedCode().NormaliseCrlf());
         }
 
 	    [Test]
@@ -530,7 +534,7 @@ Assert.AreEqual(""Bird"", target[3]);", codeGen.GetEmittedCode());
             Assert.AreEqual(@"Assert.AreEqual(3, target.Animals.Count);
 Assert.AreEqual(null, target.Animals[0].Sound);
 Assert.AreEqual(null, target.Animals[1].Sound);
-Assert.AreEqual(null, target.Animals[2].Sound);", codeGen.GetEmittedCode());
+Assert.AreEqual(null, target.Animals[2].Sound);".NormaliseCrlf(), codeGen.GetEmittedCode().NormaliseCrlf());
         }
         #endregion
 	}

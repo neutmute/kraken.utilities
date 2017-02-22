@@ -60,6 +60,7 @@
     <Compile Include="..\..\SolutionItems\properties\AssemblyInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
+    <Compile Include="ExtensionMethods\StringExtensions.cs" />
     <Compile Include="Options\AssertSignatures.cs" />
     <Compile Include="Reflection\AssertBuilder.cs" />
     <Compile Include="AssertTool.cs" />
