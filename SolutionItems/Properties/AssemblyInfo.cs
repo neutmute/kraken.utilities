@@ -8,4 +8,10 @@ using System.Reflection;
 
 // UACHelper
 [assembly: System.CLSCompliant(false)]
+[assembly: AssemblyInformationalVersion("")]
 
+#if DEBUG
+[assembly: AssemblyConfiguration("Debug")]
+#else
+[assembly: AssemblyConfiguration("Release")]
+#endif

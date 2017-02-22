@@ -14,7 +14,8 @@ namespace Kraken.Core
         /// <summary>
         /// Profiling showed the determination of this was fairly expensive, so lets cache the value
         /// </summary>
-        private static readonly string _executionPath;
+        private static bool _isUnitTest;
+        private static string _executionPath;
         #endregion
 
         #region Properties
@@ -25,7 +26,10 @@ namespace Kraken.Core
         /// Should be used with restraint since it is dangerous to make code decisions based on whether we are in 
         /// unit test or not but used judiciously it is useful.
         /// </remarks>
-        public static bool IsUnitTest { get; private set; }
+        public static bool IsUnitTest
+        {
+            get { return _isUnitTest; }
+        }
 
         /// <summary>
         /// Was the code compiled in DEBUG or RELEASE configuration
@@ -41,30 +45,11 @@ namespace Kraken.Core
         {
             get
             {
-                EnsureCustomCompilationAttributeExists(Assembly.GetCallingAssembly());
+                EnsureCustomAttributeExists(Assembly.GetCallingAssembly());
                 return _compilationAttribute.IsDebug;
             }
         }
-        
-        private static string ExecutingAssemblyPath
-        {
-            get { return Assembly.GetExecutingAssembly().Location; }
-        }
 
-        public static string EntryAssemblyPath
-        {
-            get
-            {
-
-                var assembly = Assembly.GetEntryAssembly();
-                if (assembly == null)
-                {
-                    // some unit tests
-                    return string.Empty;
-                }
-                return assembly.Location;
-            }
-        }
         #endregion
 
         #region Constructors
@@ -73,17 +58,16 @@ namespace Kraken.Core
         /// </summary>
         static ExecutionEnvironment()
         {
-            _executionPath = ExecutingAssemblyPath.ToLower();
+            _executionPath = Assembly.GetExecutingAssembly().Location.ToLower();
 
             bool devTest = _executionPath.IndexOf("nunit") > -1;
             bool cruiseTest = _executionPath.IndexOf("unittests") > -1;
-           // bool cruiseTest = _executionPath.IndexOf("xunit") > -1;
 
-            IsUnitTest = devTest || cruiseTest;
+            _isUnitTest = devTest || cruiseTest;
         }
         #endregion
 
-        #region Methods
+        #region Instance Methods
         public static ApplicationMetadata GetApplicationMetadata()
         {
             var appMetadata = new ApplicationMetadata();
@@ -94,18 +78,38 @@ namespace Kraken.Core
             appMetadata.Name = assembly.GetName().Name;
             appMetadata.Version = assembly.GetName().Version.ToString();
             appMetadata.ExePath = assembly.Location;
-            appMetadata.ExeFolder = new FileInfo(assembly.Location).DirectoryName;
+
+            if (!string.IsNullOrEmpty(assembly.Location)) // vNext no assembly magic
+            {
+                appMetadata.ExeFolder = new FileInfo(assembly.Location).DirectoryName;
+            }
+
+            var infoVersionAttribute = GetCustomAttribute<AssemblyInformationalVersionAttribute>(assembly);
+            if (infoVersionAttribute != null)
+            {
+                appMetadata.InformationalVersion = infoVersionAttribute.InformationalVersion;
+            }
+
             appMetadata.UserName = Environment.UserName;
 
-            var compilationAttribute = GetCustomAttribute <AssemblyCompilationAttribute>(assembly);
+            var compilationAttribute = GetCustomAttribute<AssemblyCompilationAttribute>(assembly);
             if (compilationAttribute != null)
             {
-                appMetadata.BuildConfiguration = compilationAttribute.BuildConfiguration.GetDisplayName();
+                appMetadata.BuildConfiguration = compilationAttribute.BuildConfiguration;
+                appMetadata.BuildConfigurationText = appMetadata.BuildConfiguration.ToString();
             }
             else
             {
                 var configurationAttribute = GetCustomAttribute<AssemblyConfigurationAttribute>(assembly);
-                appMetadata.BuildConfiguration = configurationAttribute == null ? "Unknown" : configurationAttribute.Configuration;
+                appMetadata.BuildConfiguration = BuildConfiguration.Unknown;
+                if (configurationAttribute != null)
+                {
+                    appMetadata.BuildConfigurationText = configurationAttribute.Configuration;
+                }
+                else
+                {
+                    appMetadata.BuildConfigurationText = "Unknown";
+                }
             }
 
             return appMetadata;
@@ -134,12 +138,12 @@ namespace Kraken.Core
         [CodeCoverageExcluded("Cannot cover this in a Unit Test by definition")]
         public static void AssertIsDebug(string exceptionMessageFormat, params object[] args)
         {
-            Assembly callingAssembly = Assembly.GetCallingAssembly();
-            EnsureCustomCompilationAttributeExists(callingAssembly);
+            Assembly callingAssmebly = Assembly.GetCallingAssembly();
+            EnsureCustomAttributeExists(callingAssmebly);
 
             if (!_compilationAttribute.IsDebug)
             {
-                throw new NotSupportedException(string.Format(exceptionMessageFormat, args) + " (calling assembly=" + callingAssembly.FullName + ")");
+                throw new NotSupportedException(string.Format(exceptionMessageFormat, args) + " (calling assembly=" + callingAssmebly.FullName + ")");
             }
         }
 
@@ -163,7 +167,7 @@ namespace Kraken.Core
             return customAttribute;
         }
 
-        private static void EnsureCustomCompilationAttributeExists(Assembly assembly)
+        private static void EnsureCustomAttributeExists(Assembly assembly)
         {
             // If already set, then no work to do
             if (_compilationAttribute != null)
@@ -171,15 +175,14 @@ namespace Kraken.Core
                 return;
             }
 
-            _compilationAttribute = GetCustomAttribute < AssemblyCompilationAttribute>(assembly);
+            _compilationAttribute = GetCustomAttribute<AssemblyCompilationAttribute>(assembly);
 
             // If we can't find it then the call to IsDebugBits is illegal
             if (_compilationAttribute == null)
             {
-                throw new NotSupportedException("You must mark your [" + assembly.FullName + "] assembly with the AssemblyCompilationAttribute.");
+                throw new NotSupportedException("You must mark your [" + assembly.FullName + "] assembly with the AssemblyCompilationAttribute by adding to AssemblyInfo.cs");
             }
         }
-
         #endregion
     }
 }

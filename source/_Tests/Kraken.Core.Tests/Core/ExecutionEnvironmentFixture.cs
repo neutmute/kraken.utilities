@@ -12,12 +12,17 @@ namespace Kraken.Core.Tests.Business
     [TestFixture]
     public class ExecutionEnvironmentFixture : Fixture
     {
-        //[Ignore("Fails from nunit console")]
         //[Test]
         //public void AssertIsDebug()
         //{
         //    ExecutionEnvironment.AssertIsDebug("Expected debug");
         //}
         
+        //[Test]
+        //public void GetMetadata()
+        //{
+        //    var metadata = ExecutionEnvironment.GetApplicationMetadata();
+        //    Assert.IsNotNull(metadata.InformationalVersion);
+        //}
     }
 }

@@ -7,10 +7,8 @@ using Kraken.Core;
 #if DEBUG
 [assembly: AssemblyProduct("Kraken.Autofac (Debug)")]
 [assembly: AssemblyCompilation(BuildConfiguration.Debug)]
-[assembly: AssemblyConfiguration("Debug")]
 #else
 [assembly: AssemblyProduct("Kraken.Autofac (Release)")]
 [assembly:  AssemblyCompilation(BuildConfiguration.Release)]
-[assembly: AssemblyConfiguration("Release")]
 #endif
 

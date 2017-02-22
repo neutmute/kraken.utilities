@@ -5,9 +5,7 @@
 
 #if DEBUG
 [assembly: AssemblyProduct("Kraken.Net (Debug)")]
-[assembly: AssemblyConfiguration("Debug")]
 #else
 [assembly: AssemblyProduct("Kraken.Net (Release)")]
-[assembly: AssemblyConfiguration("Release")]
 #endif
 

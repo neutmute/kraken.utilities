@@ -5,9 +5,7 @@
 
 #if DEBUG
 [assembly: AssemblyProduct("Sample.Tests.Xunit (Debug)")]
-[assembly: AssemblyConfiguration("Debug")]
 #else
 [assembly: AssemblyProduct("Sample.Tests.Xunit (Release)")]
-[assembly: AssemblyConfiguration("Release")]
 #endif
 
