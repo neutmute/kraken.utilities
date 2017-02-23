@@ -8,7 +8,7 @@
         <authors>neutmute</authors>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <projectUrl>https://github.com/neutmute/kraken.utilities</projectUrl>
-        <iconUrl>https://raw.githubusercontent.com/neutmute/kraken.utilities/assets/kraken.png</iconUrl>
+        <iconUrl>https://cdn.rawgit.com/neutmute/kraken.utilities/develop/assets/kraken.png</iconUrl>
 	</metadata>
     <files>
         <file src="bin\$configuration$\$id$.pdb" target="lib\net40\" />
