@@ -79,12 +79,12 @@ function executeTests{
         $nunitConsole = "nunit3-console"
     }
 	
-	& $nunitConsole .\Source\_Tests\Kraken.Core.Tests\bin\Release\Kraken.Core.Tests.dll `
-					.\Source\_Tests\Kraken.Core.Windows.Tests\bin\Release\Kraken.Core.Windows.Tests.dll `
-					.\Source\_Tests\Kraken.Net.Tests\bin\Release\Kraken.Net.Tests.dll `
-					.\Source\_Tests\Kraken.Tests.Tests\bin\Release\Kraken.Tests.Tests.dll `
-					--result=$outputFolder\Kraken.Tests.xml$testResultformat
-	
+    $testProjects = @("Kraken.Core.Tests","Kraken.Core.Windows.Tests", "Kraken.Net.Tests", "Kraken.Tests.Tests")
+    
+    $testProjectsArgs = $testProjects | Foreach {".\Source\_Tests\$_\bin\Release\$_.dll"}
+    
+	& $nunitConsole $testProjectsArgs --result=$outputFolder\Kraken.Tests.xml$testResultformat
+	        
 	checkExitCode
 }
 
