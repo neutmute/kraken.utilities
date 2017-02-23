@@ -40,8 +40,12 @@ function nugetPack{
     if(!(Test-Path Env:\PackageVersion )){
         $env:PackageVersion = "1.0.0.0"
     }
+    
+    $packableProjects = @("Kraken.Core", "Kraken.Tests")
 
-    nuget pack $rootFolder\Source\Kraken.Tests\Kraken.Tests.csproj -o $outputFolder -IncludeReferencedProjects -p Configuration=$configuration -Version $env:PackageVersion
+   $packableProjects | foreach {
+       nuget pack "$rootFolder\Source\$_\$_.csproj" -o $outputFolder -IncludeReferencedProjects -p Configuration=$configuration -Version $env:PackageVersion
+   }    
 }
 
 function nugetPublish{
