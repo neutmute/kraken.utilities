@@ -10,6 +10,7 @@ See the [sample project](https://github.com/neutmute/kraken.utilities/tree/maste
 See [KrakenFixture.cs](https://github.com/neutmute/kraken.utilities/blob/master/source/Kraken.Tests.NUnit/KrakenFixture.cs)
 
 ## Usage
+### AssertBuilder
 1. `Arrange` and `Act` your test
 
 		[Fact]
@@ -40,7 +41,21 @@ Add the call to the `AssertBuilder`, passing in the object you want to Assert ag
 	* Recompile and execute your test
 	* Marvel at the time saved from all those magically written Assert's
 
-## Tips
+#### Tips
 * Use judiciously. Running `AssertBuilder` over a 50 item list sure makes for a lot of `Assert` calls but isn't proving a whole lot.
 * Use the `Options` property to exclude dynamic data such as `CreatedDate` properties.
 * Eyeball the results of your generated asserts to ensure they make sense. Applying blindly just `Asserts` that your code generated _something_ not that it is necessarily correct.
+
+### ObjectComparer
+ObjectComparer will traverse two different objects of the same type and assert that their properties are equal. Lists/arrays are supported and must be equal in length and have the same content:
+
+     	[Test]
+        public void AreEqualArray()
+        {
+            NetworkAddress address1 = new NetworkAddress(new byte[] { 1, 2 });
+            NetworkAddress address2 = new NetworkAddress(new byte[] { 1, 2 });
+
+            ObjectComparer.AssertEqual(address1, address2);
+        }  
+
+Use `ObjectComparer.Options` to specify properties that should be excluded from assertions.
