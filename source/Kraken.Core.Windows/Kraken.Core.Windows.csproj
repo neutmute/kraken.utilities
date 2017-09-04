@@ -39,6 +39,9 @@
       <HintPath>..\..\packages\Common.Logging.Core.3.3.1\lib\net40\Common.Logging.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Kraken.Core, Version=4.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Kraken.Core.4.5.0.108\lib\net40\Kraken.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -63,12 +66,6 @@
     <Compile Include="TransactionManager.cs" />
     <Compile Include="Web\WcfClientLogic.cs" />
     <Compile Include="Win32\UacHelper.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Kraken.Core\Kraken.Core.csproj">
-      <Project>{d0365619-0c1b-4aed-875b-1882e504fef9}</Project>
-      <Name>Kraken.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

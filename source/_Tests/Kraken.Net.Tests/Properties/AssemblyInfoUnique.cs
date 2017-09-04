@@ -7,9 +7,9 @@ using Kraken.Core;
 
 #if DEBUG
 [assembly: AssemblyProduct("Kraken.Core.Tests (Debug)")]
-[assembly: AssemblyCompilation(BuildConfiguration.Debug)]
+//[assembly: AssemblyCompilation(BuildConfiguration.Debug)]
 #else
 [assembly: AssemblyProduct("Kraken.Core.Tests (Release)")]
-[assembly: AssemblyCompilation(BuildConfiguration.Release)]
+//[assembly: AssemblyCompilation(BuildConfiguration.Release)]
 #endif
 

@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Kraken.Net.Tests</RootNamespace>
     <AssemblyName>Kraken.Net.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -59,10 +60,6 @@
     <Compile Include="Properties\AssemblyInfoUnique.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Kraken.Core\Kraken.Core.csproj">
-      <Project>{d0365619-0c1b-4aed-875b-1882e504fef9}</Project>
-      <Name>Kraken.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Kraken.Tests.NUnit\Kraken.Tests.NUnit.csproj">
       <Project>{8d280e0a-6c63-4531-b6b7-9e551afa2d32}</Project>
       <Name>Kraken.Tests.NUnit</Name>
