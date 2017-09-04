@@ -4,7 +4,7 @@ using System.Reflection;
 
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-[assembly: AssemblyVersion("4.5.*")]
+[assembly: AssemblyVersion("4.6.0.0")]
 
 // UACHelper
 [assembly: System.CLSCompliant(false)]
