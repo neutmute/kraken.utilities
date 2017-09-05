@@ -89,12 +89,12 @@ namespace Kraken.Net
                     if (ipv4.UsesWins)
                     {
 
-                        IPAddressCollection winsServers = properties.WinsServersAddresses;
-                        if (winsServers.Count > 0)
-                        {
-                            label = "  WINS Servers ............................ :";
-                            ShowIPAddresses(label, winsServers);
-                        }
+                        //var winsServers = properties.WinsServersAddresses;
+                        //if (winsServers.Count > 0)
+                        //{
+                        //    label = "  WINS Servers ............................ :";
+                        //    ShowIPAddresses(label, winsServers);
+                        //}
                     }
                 }
             }
@@ -120,13 +120,13 @@ namespace Kraken.Net
             }
         }
 
-        private void ShowIPAddresses(string label, IPAddressCollection winsServers)
+        private void ShowIPAddresses(string label, System.Net.IPAddressCollection winsServers)
         {
             Emit("-----" + label + "-----");
             ShowIPAddressCollection(winsServers);
         }
 
-        private void ShowIPAddressCollection(IPAddressCollection collection)
+        private void ShowIPAddressCollection(System.Net.IPAddressCollection collection)
         {
             for (int i = 0; i < collection.Count; i++)
             {

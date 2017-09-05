@@ -5,9 +5,9 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text;
-using LukeSkywalker.IPNetwork;
+
 using Common.Logging;
-using IPAddressCollection = LukeSkywalker.IPNetwork.IPAddressCollection;
+
 
 namespace Kraken.Net
 {
@@ -90,7 +90,7 @@ namespace Kraken.Net
             return mostPrimaryNic;
         }
 
-        public IPAddressCollection GetIpRange(IpContainer ipContainer)
+        public System.Net.IPAddressCollection GetIpRange(IpContainer ipContainer)
         {
             IPNetwork ipnetwork = GetIPNetwork(ipContainer);
             return IPNetwork.ListIPAddress(ipnetwork);
