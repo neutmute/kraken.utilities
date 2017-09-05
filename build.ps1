@@ -23,10 +23,10 @@ function init {
 function restorePackages{
     _WriteOut -ForegroundColor $ColorScheme.Banner "nuget, gitlink restore"
     
-    New-Item -Force -ItemType directory -Path $packagesFolder
-    _DownloadNuget $packagesFolder
-    nuget restore
-    nuget install gitlink -SolutionDir "$rootFolder" -ExcludeVersion
+    #New-Item -Force -ItemType directory -Path $packagesFolder
+    #_DownloadNuget $packagesFolder
+    dotnet restore
+    #nuget install gitlink -SolutionDir "$rootFolder" -ExcludeVersion
 }
 
 function nugetPack{
@@ -62,9 +62,9 @@ function nugetPublish{
 function buildSolution{
 
     _WriteOut -ForegroundColor $ColorScheme.Banner "Build Solution"
-    & $msbuild "$rootFolder\$solutionName.sln" /p:Configuration=$configuration /verbosity:minimal
+    & dotnet build "$rootFolder\$solutionName.sln" /p:Configuration=$configuration /verbosity:minimal
 
-    &"$rootFolder\packages\gitlink\lib\net45\GitLink.exe" $rootFolder -u $sourceUrl
+    #&"$rootFolder\packages\gitlink\lib\net45\GitLink.exe" $rootFolder -u $sourceUrl
 }
 
 function executeTests{
