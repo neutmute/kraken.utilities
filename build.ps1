@@ -97,7 +97,7 @@ function executeTests{
 
 init
 
-restorePackages
+# restorePackages
 
 buildSolution
 
