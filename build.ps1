@@ -21,12 +21,9 @@ function init {
 }
 
 function restorePackages{
-    _WriteOut -ForegroundColor $ColorScheme.Banner "nuget, gitlink restore"
+    _WriteOut -ForegroundColor $ColorScheme.Banner "Restoring packages"
     
-    #New-Item -Force -ItemType directory -Path $packagesFolder
-    #_DownloadNuget $packagesFolder
     dotnet restore
-    #nuget install gitlink -SolutionDir "$rootFolder" -ExcludeVersion
 }
 
 function nugetPack{
@@ -85,7 +82,7 @@ function executeTests{
    #
 	#& $nunitConsole $testProjectsArgs --result=$outputFolder\Kraken.Tests.xml$testResultformat
     
-        & $nunitConsole .\Source\_Tests\Kraken.Core.Tests\bin\Release\Kraken.Core.Tests.dll `
+        & $nunitConsole .\Source\_Tests\Kraken.Core.Tests\bin\Release\net47\Kraken.Core.Tests.dll `
                     .\Source\_Tests\Kraken.Core.Windows.Tests\bin\Release\Kraken.Core.Windows.Tests.dll `
                     .\Source\_Tests\Kraken.Net.Tests\bin\Release\Kraken.Net.Tests.dll `
                     .\Source\_Tests\Kraken.Tests.Tests\bin\Release\Kraken.Tests.Tests.dll `

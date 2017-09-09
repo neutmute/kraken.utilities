@@ -79,7 +79,7 @@ namespace Kraken.Net
             Emit("  DNS suffix .............................. : {0}",
                  properties.DnsSuffix);
 
-            string label;
+            //string label;
             if (adapter.Supports(NetworkInterfaceComponent.IPv4))
             {
                 IPv4InterfaceProperties ipv4 = properties.GetIPv4Properties();
