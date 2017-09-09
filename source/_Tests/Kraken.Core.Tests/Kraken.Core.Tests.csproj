@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net47</TargetFramework>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
   </PropertyGroup>
@@ -21,6 +21,10 @@
     <ProjectReference Include="..\..\Kraken.Core\Kraken.Core.csproj" />
     <ProjectReference Include="..\..\Kraken.Tests.NUnit\Kraken.Tests.NUnit.csproj" />
     <ProjectReference Include="..\..\Kraken.Tests\Kraken.Tests.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
 
 </Project>

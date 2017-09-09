@@ -84,10 +84,10 @@ function executeTests{
     
         & $nunitConsole .\Source\_Tests\Kraken.Core.Tests\bin\Release\net47\Kraken.Core.Tests.dll `
                     .\Source\_Tests\Kraken.Core.Windows.Tests\bin\Release\net47\Kraken.Core.Windows.Tests.dll `
-                    .\Source\_Tests\Kraken.Net.Tests\bin\Release\netstandard2.0\Kraken.Net.Tests.dll `
-                    .\Source\_Tests\Kraken.Tests.Tests\bin\Release\netstandard2.0\Kraken.Tests.Tests.dll `
-                    .\Source\_Tests\Kraken.Web.Tests\bin\Release\net47\Kraken.Web.Tests.dll `
+                    .\Source\_Tests\Kraken.Net.Tests\bin\Release\net47\Kraken.Net.Tests.dll `
+                    .\Source\_Tests\Kraken.Tests.Tests\bin\Release\net47\Kraken.Tests.Tests.dll `
                     --result=$outputFolder\Kraken.Tests.xml$testResultformat
+                    #.\Source\_Tests\Kraken.Web.Tests\bin\Release\net47\Kraken.Web.Tests.dll `
 
 	        
 	checkExitCode
