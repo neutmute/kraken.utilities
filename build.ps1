@@ -27,9 +27,8 @@ function restorePackages{
 }
 
 function nugetPack{
-    _WriteOut -ForegroundColor $ColorScheme.Banner "Nuget pack"
-    
-    New-Item -Force -ItemType directory -Path $outputFolder
+   
+    New-Item -Force -ItemType directory -Path $outputFolder | Out-Null
 
     if(!(Test-Path Env:\nuget )){
         $env:nuget = nuget
@@ -38,10 +37,13 @@ function nugetPack{
         $env:PackageVersion = "1.0.0.0"
     }
     
+     _WriteOut -ForegroundColor $ColorScheme.Banner "Nuget pack v=$env:PackageVersion, output='$outputFolder'"
+    
+    
     $packableProjects = @("Kraken.Core", "Kraken.Tests")
 
    $packableProjects | foreach {
-       nuget pack "$rootFolder\Source\$_\$_.csproj" -o $outputFolder -IncludeReferencedProjects -p Configuration=$configuration -Version $env:PackageVersion
+       dotnet pack "$rootFolder\Source\$_\$_.csproj" /p:Version=$env:PackageVersion --output $outputFolder --include-source --include-symbols --no-build --configuration=$configuration
    }    
 }
 
