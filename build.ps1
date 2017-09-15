@@ -71,7 +71,7 @@ function executeTests{
     Write-Host "Execute Tests"
 
     $testResultformat = ""
-    $nunitConsole = "$rootFolder\packages\NUnit.ConsoleRunner.3.6.0\tools\nunit3-console.exe"
+    $nunitConsole = "$($env:UserProfile)\.nuget\packages\nunit.consolerunner\3.7.0\tools\nunit3-console.exe"
 
     if(Test-Path Env:\APPVEYOR){
         $testResultformat = ";format=AppVeyor"
