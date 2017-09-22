@@ -10,53 +10,6 @@ namespace Kraken.Core
 {
     public static class Resource
     {
-        //public static byte[] GetBytes(string relativeLocation)
-        //{
-        //    return GetBytes(Assembly.GetCallingAssembly(), relativeLocation);
-        //}
-
-        //public static byte[] GetString(string relativeLocation)
-        //{
-        //    return GetBytes(Assembly.GetCallingAssembly(), relativeLocation);
-        //}
-
-        //public static byte[] GetBytes(Assembly assembly, string relativeLocation)
-        //{
-        //    FileInfo assemblyFile = new FileInfo(assembly.Location);
-        //    string possibleFileLocation = Path.Combine(assemblyFile.DirectoryName, relativeLocation);
-        //    FileInfo fileInfo = new FileInfo(possibleFileLocation);
-
-        //    byte[] bytes;
-
-        //    if (fileInfo.Exists)
-        //    {
-        //        bytes = File.ReadAllBytes(fileInfo.FullName);
-        //    }
-        //    else
-        //    {
-        //        throw new NotImplementedException("embedded resource needs implementation or file not found - " + possibleFileLocation);
-        //    }
-
-        //    return bytes;
-        //}
-
-        ///// <summary>
-        ///// Extracts a resource from the given assembly and dumps it's contents into a byte array
-        ///// </summary>
-        //private static byte[] GetBytesFromEmbedded(Assembly assembly, string resource)
-        //{
-        //    byte[] bytes;
-
-        //    using (var resourceStream = GetStream(assembly, resource))
-        //    {
-        //        int streamLength = Convert.ToInt32(resourceStream.Length);
-        //        bytes = new byte[streamLength];
-        //        resourceStream.Read(bytes, 0, streamLength);
-        //    }
-
-        //    return bytes;
-        //}
-
         public static string GetStringFromEmbedded(string resource)
         {
             return GetStringFromEmbedded(Assembly.GetCallingAssembly(), resource);
@@ -139,5 +92,34 @@ namespace Kraken.Core
             ExportToFile(callingAssembly, resource, fileName);
         }
 
+        /// <summary>
+        /// Extracts a resource from the given assembly and dumps it's contents into a byte array
+        /// </summary>
+        public static byte[] ExportToBinary(string resource)
+        {
+            return ExportToBinary(Assembly.GetCallingAssembly(), resource);
+        }
+
+        /// <summary>
+        /// Extracts a resource from the given assembly and dumps it's contents into a byte array
+        /// </summary>
+        public static byte[] ExportToBinary(Assembly assembly, string resource)
+        {
+            byte[] binaryFile;
+
+            using (Stream resourceStream = assembly.GetManifestResourceStream(resource))
+            {
+                if (resourceStream == null)
+                {
+                    throw KrakenException.Create("Resource '{0}' was expected in assembly '{1}' but was not found.", resource, assembly.Location);
+                }
+
+                int streamLength = Convert.ToInt32(resourceStream.Length);
+                binaryFile = new byte[streamLength];
+                resourceStream.Read(binaryFile, 0, streamLength);
+            }
+
+            return binaryFile;
+        }
     }
 }
