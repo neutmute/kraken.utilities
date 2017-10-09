@@ -43,7 +43,7 @@ function nugetPack{
     $packableProjects = @("Kraken.Core", "Kraken.Tests")
 
    $packableProjects | foreach {
-       dotnet pack "$rootFolder\Source\$_\$_.csproj" /p:Version=$env:PackageVersion --output $outputFolder --include-source --include-symbols --no-build --configuration=$configuration
+       dotnet pack "$rootFolder\Source\$_\$_.csproj" /p:Version=$env:PackageVersion --output $outputFolder --no-build --configuration=$configuration
    }    
 }
 
