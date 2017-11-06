@@ -2,16 +2,17 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net46</TargetFrameworks>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <Description>Various reusable libraries</Description>
+    <PackageProjectUrl>https://github.com/neutmute/kraken.utilities</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/neutmute/kraken.utilities</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\..\SolutionItems\Properties\AssemblyInfo.cs" Link="Properties\AssemblyInfo.cs" />
+    <PackageReference Include="Common.Logging" Version="3.4.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Common.Logging" Version="3.4.1" />
+    <Folder Include="Properties\" />
   </ItemGroup>
 
 </Project>
