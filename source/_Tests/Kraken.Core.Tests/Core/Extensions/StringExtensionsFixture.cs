@@ -23,6 +23,20 @@ namespace Kraken.Core.Tests.Business.ExtensionMethods
             Assert.That(!((string)null).EqualsCaseInsensitive("klkl"));
         }
 
+        [TestCase(null, "abc", false)]
+        [TestCase(new[] { "ABC", "abcd" }, "abc", true)]
+        [TestCase(new[] { "cba", "Abc" }, "abc", true)]
+        [TestCase(new[] { "abc" }, "abc", true)]
+        [TestCase(new string[] { null, null }, "abc", false)]
+        [TestCase(new[] { null, "" }, "abc", false)]
+        [TestCase(new[] { "abc", "def" }, "", false)]
+        [TestCase(new[] { "abc", "def" }, null, false)]
+        public void ContainsFragment(string[] strings, string find, bool expected)
+        {
+            var result = strings.ContainsFragment(find);
+            Assert.AreEqual(expected, result);
+        }
+
         [Test]
         public void TrimToMax()
         {

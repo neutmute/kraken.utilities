@@ -57,7 +57,7 @@ namespace Kraken.Core
             {
                 FileInfo fileInfo = new FileInfo(file);
                 var matchDate = fileInfo.LastWriteTime > DateTime.Now.Date;
-                var matchAntiPattern = AntiFilenamePattern.ContainedAsFragment(fileInfo.Name);
+                var matchAntiPattern = AntiFilenamePattern.ContainsFragment(fileInfo.Name);
                 
                 if (matchDate && !matchAntiPattern)
                 {

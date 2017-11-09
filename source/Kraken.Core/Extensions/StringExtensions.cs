@@ -40,18 +40,16 @@ namespace Kraken.Core.Extensions
 
             return string.Compare(target, other, true) == 0;
         }
-
-        public static bool ContainedAsFragment(this List<string> target, string input)
+        public static bool ContainsFragment(this IEnumerable<string> strings, string target)
         {
-            bool matchFound = false;
-            input = input.ToLower();
-            for (int i = 0; i < target.Count && !matchFound; i++)
-            {
-                matchFound = input.Contains(target[i].ToLower());
-            }
-            return matchFound;
+            return strings.ContainsFragment(target, StringComparer.OrdinalIgnoreCase);
         }
 
+        public static bool ContainsFragment(this IEnumerable<string> strings, string target, IEqualityComparer<string> comparer)
+        {
+            return strings != null && strings.Contains(target, comparer);
+        }
+        
         public enum TrimToMaxOptions
         {
             None = 0,
