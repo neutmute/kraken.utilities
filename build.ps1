@@ -18,6 +18,8 @@ function init {
 
     _WriteOut -ForegroundColor $ColorScheme.Banner "-= $solutionName Build =-"
     _WriteConfig "rootFolder" $rootFolder
+    
+    _DownloadNuget $global:rootFolder
 }
 
 function restorePackages{
@@ -84,12 +86,12 @@ function executeTests{
    #
 	#& $nunitConsole $testProjectsArgs --result=$outputFolder\Kraken.Tests.xml$testResultformat
     
-        & $nunitConsole .\Source\_Tests\Kraken.Core.Tests\bin\Release\net47\Kraken.Core.Tests.dll `
-                    .\Source\_Tests\Kraken.Core.Windows.Tests\bin\Release\net47\Kraken.Core.Windows.Tests.dll `
-                    .\Source\_Tests\Kraken.Net.Tests\bin\Release\net47\Kraken.Net.Tests.dll `
-                    .\Source\_Tests\Kraken.Tests.Tests\bin\Release\net47\Kraken.Tests.Tests.dll `
-                    --result=$outputFolder\Kraken.Tests.xml$testResultformat
-                    #.\Source\_Tests\Kraken.Web.Tests\bin\Release\net47\Kraken.Web.Tests.dll `
+    & $nunitConsole .\Source\_Tests\Kraken.Core.Tests\bin\Release\net47\Kraken.Core.Tests.dll `
+                .\Source\_Tests\Kraken.Core.Windows.Tests\bin\Release\net47\Kraken.Core.Windows.Tests.dll `
+                .\Source\_Tests\Kraken.Net.Tests\bin\Release\net47\Kraken.Net.Tests.dll `
+                .\Source\_Tests\Kraken.Tests.Tests\bin\Release\net47\Kraken.Tests.Tests.dll `
+                --result=$outputFolder\Kraken.Tests.xml$testResultformat
+                #.\Source\_Tests\Kraken.Web.Tests\bin\Release\net47\Kraken.Web.Tests.dll `
 
 	        
 	checkExitCode
