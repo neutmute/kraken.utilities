@@ -35,11 +35,25 @@ namespace Kraken.Core
             return new List<Assembly>(files.Select(Assembly.LoadFrom));
         }
 
-        public List<Type> GetAllTypes(IEnumerable<Assembly> assemblies)
+        public List<Type> GetAllTypes(Assembly assembly, bool logWarnings = true)
         {
-            // BH: This code had some funky all in one linq which failed on Assembly.GetTypes() in a solution
+            return GetAllTypes(new[] { assembly });
+        }
+
+        public List<Type> GetAllTypes(IEnumerable<Assembly> assemblies, bool logLoadExceptions = true)
+        {
+            // This code had some funky all in one linq which failed on Assembly.GetTypes() in a solution
             // Needed to unroll and add some try catch handling to allow service to start
             List<Type> allAssemblyTypes = new List<Type>();
+
+            Action<string, Exception> logError = (message, exception) =>
+            {
+                if (logLoadExceptions)
+                {
+                    Log.Warn(message, exception);
+                }
+            };
+
             foreach (Assembly assembly in assemblies)
             {
                 try
@@ -58,18 +72,18 @@ namespace Kraken.Core
                             FileNotFoundException exFileNotFound = exSub as FileNotFoundException;
                             if (!string.IsNullOrEmpty(exFileNotFound.FusionLog))
                             {
-                                sb.AppendLine("Fusion Log:");
+                                sb.AppendLine("ReflectionService.GetAllTypes:");
                                 sb.AppendLine(exFileNotFound.FusionLog);
                             }
                         }
                         sb.AppendLine();
                     }
                     string errorMessage = sb.ToString();
-                    Log.Warn(errorMessage, ex);
+                    logError(errorMessage, ex);
                 }
                 catch (Exception e)
                 {
-                    Log.Warn("Failed to load types for " + assembly.GetName().Name, e);
+                    logError("ReflectionService.GetAllTypes failed to load types for " + assembly.GetName().Name, e);
                     continue;
                 }
             }
@@ -82,20 +96,12 @@ namespace Kraken.Core
             List<Type> allTypes = GetAllTypes(assemblies);
             return GetImplementationsOf<T>(allTypes);
         }
-
-
+        
         public List<Type> GetImplementationsOf<T>(List<Type> types)
         {
             var stage1 = (from t in types where typeof(T).IsAssignableFrom(t) select t).ToList();
             var stage2 = (from t in stage1 where !t.IsInterface select t).ToList();
             var stage3 = (from t in stage2 where !t.IsAbstract select t).ToList();
-
-            //List<Type> typeList = (
-            //                          from t in types
-            //                              .Where(type => typeof(T).IsAssignableFrom(type) && !type.IsInterface && !type.IsAbstract)
-            //                          select t
-            //                      ).ToList();
-
             return stage3;
         }
     }
