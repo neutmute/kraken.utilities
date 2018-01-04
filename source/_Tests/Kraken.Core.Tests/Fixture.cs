@@ -21,10 +21,16 @@ namespace Kraken.Core.Tests
         {
             TestFrameworkFacade.AssertEqual = (o1, o2, s) => { Assert.AreEqual(o1, o2, s); };
             TestFrameworkFacade.AssertFail = Assert.Fail;
-            SetTestTempDirectory(@"D:\Logs\Tests\Framework.Core");
+
+            var appVeyorBuildFolder = Environment.GetEnvironmentVariable("APPVEYOR_BUILD_FOLDER");
+            var tempPathRoot = @"D:\Logs\Tests";
+            if (!string.IsNullOrEmpty(appVeyorBuildFolder))
+            {
+                tempPathRoot = Path.Combine(appVeyorBuildFolder, "TestOutput");
+            }
+            SetTestTempDirectory(Path.Combine(tempPathRoot, "Framework.Core"));
         }
-
-
+        
         protected override void RegisterAutofacModules()
         {
         }
