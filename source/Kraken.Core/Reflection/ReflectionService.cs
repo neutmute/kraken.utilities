@@ -35,9 +35,9 @@ namespace Kraken.Core
             return new List<Assembly>(files.Select(Assembly.LoadFrom));
         }
 
-        public List<Type> GetAllTypes(Assembly assembly, bool logWarnings = true)
+        public List<Type> GetAllTypes(Assembly assembly, bool logLoadExceptions = true)
         {
-            return GetAllTypes(new[] { assembly });
+            return GetAllTypes(new[] { assembly }, logLoadExceptions);
         }
 
         public List<Type> GetAllTypes(IEnumerable<Assembly> assemblies, bool logLoadExceptions = true)
