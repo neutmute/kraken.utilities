@@ -44,7 +44,7 @@ namespace Kraken.Core
         {
             // This code had some funky all in one linq which failed on Assembly.GetTypes() in a solution
             // Needed to unroll and add some try catch handling to allow service to start
-            List<Type> allAssemblyTypes = new List<Type>();
+            var allAssemblyTypes = new List<Type>();
 
             Action<string, Exception> logError = (message, exception) =>
             {
@@ -58,12 +58,12 @@ namespace Kraken.Core
             {
                 try
                 {
-                    List<Type> thisAssemblyTypes = assembly.GetTypes().ToList();
+                    var thisAssemblyTypes = assembly.GetTypes().ToList();
                     allAssemblyTypes.AddRange(thisAssemblyTypes);
                 }
                 catch (ReflectionTypeLoadException ex)
                 {
-                    StringBuilder sb = new StringBuilder();
+                    var sb = new StringBuilder();
                     foreach (Exception exSub in ex.LoaderExceptions)
                     {
                         sb.AppendLine(exSub.Message);
@@ -78,7 +78,7 @@ namespace Kraken.Core
                         }
                         sb.AppendLine();
                     }
-                    string errorMessage = sb.ToString();
+                    var errorMessage = sb.ToString();
                     logError(errorMessage, ex);
                 }
                 catch (Exception e)

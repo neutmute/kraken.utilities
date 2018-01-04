@@ -50,7 +50,7 @@ function nugetPack{
 function nugetPublish{
 
     if(Test-Path Env:\nugetapikey ){
-        _WriteOut -ForegroundColor $ColorScheme.Banner "Nuget publish..."
+        _WriteOut -ForegroundColor $ColorScheme.Banner "Publishing to Nuget.org"
         &nuget push $outputFolder\* -ApiKey "$env:nugetapikey" -source https://www.nuget.org
     }
     else{
