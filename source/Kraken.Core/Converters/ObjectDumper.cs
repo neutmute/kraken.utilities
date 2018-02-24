@@ -46,6 +46,9 @@ namespace Kraken.Core
             return Dump(new List<T> {target});
         }
         
+        /// <summary>
+        /// Useful for transformation after
+        /// </summary>
         public List<ObjectDump> GetDumpStructures(IEnumerable<T> target)
         {
             if (_dumpDataMethod == null)
@@ -55,7 +58,9 @@ namespace Kraken.Core
             var objectDumpList = new List<ObjectDump>();
             foreach (T obj in target)
             {
-                objectDumpList.Add(_dumpDataMethod(obj));
+                var dump = _dumpDataMethod(obj);
+                dump.OriginalEntity = obj;
+                objectDumpList.Add(dump);
             }
             return objectDumpList;
         }
