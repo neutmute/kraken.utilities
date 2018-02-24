@@ -46,7 +46,7 @@ namespace Kraken.Core
             return Dump(new List<T> {target});
         }
         
-        public string Dump(IEnumerable<T> target)
+        public List<ObjectDump> GetDumpStructures(IEnumerable<T> target)
         {
             if (_dumpDataMethod == null)
             {
@@ -57,9 +57,19 @@ namespace Kraken.Core
             {
                 objectDumpList.Add(_dumpDataMethod(obj));
             }
-            return Dump(objectDumpList);
+            return objectDumpList;
         }
 
+        public string Dump(IEnumerable<T> target)
+        {
+            if (_dumpDataMethod == null)
+            {
+                throw KrakenException.Create("You used the wrong constructor for ObjectDumper");
+            }
+            var objectDumpList = GetDumpStructures(target);
+            return Dump(objectDumpList);
+        }
+        
         public string Dump(List<ObjectDump> objectDumpList)
         {
             List<List<string>> grid = new List<List<string>>();
