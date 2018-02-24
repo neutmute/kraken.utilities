@@ -42,7 +42,7 @@ function nugetPack{
      _WriteOut -ForegroundColor $ColorScheme.Banner "Nuget pack v=$env:PackageVersion, output='$outputFolder'"
     
     
-    $packableProjects = @("Kraken.Core", "Kraken.Tests")
+    $packableProjects = @("Kraken.Core", "Kraken.Core.Windows", "Kraken.Tests")
 
    $packableProjects | foreach {
        dotnet pack "$rootFolder\Source\$_\$_.csproj" /p:Version=$env:PackageVersion --output $outputFolder --no-build --configuration=$configuration
