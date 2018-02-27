@@ -14,6 +14,8 @@ namespace Kraken.Core
         public List<string> Headers { get; set; }
 
         public List<string> Data { get; set; }
+
+        public object OriginalEntity { get; set; }
         #endregion
 
         #region Constructors
