@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using System.Globalization;
 using System.Threading;
-using Common.Logging;
 
 namespace Kraken.Core
 {
