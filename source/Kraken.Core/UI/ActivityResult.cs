@@ -61,6 +61,12 @@ namespace Kraken.Core
         {
             return string.Format("Success={0}, Messages={1}", Success, Messages.ToCsv("|"));
         }
+
+
+        public string ToString(string messageDelimiter)
+        {
+            return $"Success={Success}, Messages={messageDelimiter}{Messages.ToString(messageDelimiter)}";
+        }
         #endregion
     }
 }
