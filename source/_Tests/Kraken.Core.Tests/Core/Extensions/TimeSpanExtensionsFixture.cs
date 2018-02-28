@@ -28,6 +28,21 @@ namespace Kraken.Core.Tests.Business.ExtensionMethods
         }
 
         [Test]
+        public void ToHumanReadableWhenMax()
+        {
+            TimeSpan ts = TimeSpan.MaxValue;
+            Assert.AreEqual("TimeSpan.Max", ts.ToHumanReadable());
+        }
+
+
+        [Test]
+        public void ToHumanReadableWhenMin()
+        {
+            TimeSpan ts = TimeSpan.MinValue;
+            Assert.AreEqual("TimeSpan.Min", ts.ToHumanReadable());
+        }
+
+        [Test]
         public void ToHumanReadableWhenNull()
         {
             TimeSpan? ts = null;

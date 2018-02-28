@@ -74,6 +74,14 @@ namespace Kraken.Core
         /// <returns>Human readable time duration.</returns>
         public static string ToHumanReadable(this TimeSpan timeSpan, HumanReadableTimeSpanOptions options)
         {
+            if (timeSpan.Equals(TimeSpan.MaxValue))
+            {
+                return "TimeSpan.Max";
+            }
+            if (timeSpan.Equals(TimeSpan.MinValue))
+            {
+                return "TimeSpan.Min";
+            }
             decimal seconds = Convert.ToDecimal(timeSpan.TotalSeconds);
             var labels = new HumanReadableTimeLabels();
             switch (options.LabelMode)
