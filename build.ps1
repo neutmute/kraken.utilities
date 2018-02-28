@@ -10,16 +10,17 @@ $sourceUrl = "https://github.com/neutmute/kraken.utilities"
 
 function init {
     # Initialization
-    $global:rootFolder = Split-Path -parent $script:MyInvocation.MyCommand.Path
-    $global:rootFolder = Join-Path $rootFolder .
-    $global:packagesFolder = Join-Path $rootFolder packages
-    $global:outputFolder = Join-Path $rootFolder _output
+    $global:packagesFolder = Join-Path $PSScriptRoot '\packages'
+    $global:outputFolder = Join-Path $PSScriptRoot '\_output'
     $global:msbuild = "C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe"
 
     _WriteOut -ForegroundColor $ColorScheme.Banner "-= $solutionName Build =-"
-    _WriteConfig "rootFolder" $rootFolder
+    _WriteConfig "PSScriptRoot" $PSScriptRoot
+    _WriteConfig "packageVersion" $packageVersion
+    _WriteConfig "configuration" $configuration
+    _WriteConfig "packagesFolder" $packagesFolder
     
-    _DownloadNuget $global:rootFolder
+    Get-Nuget $PSScriptRoot
 }
 
 function restorePackages{
@@ -45,7 +46,7 @@ function nugetPack{
     $packableProjects = @("Kraken.Core", "Kraken.Core.Windows", "Kraken.Tests")
 
    $packableProjects | foreach {
-       dotnet pack "$rootFolder\Source\$_\$_.csproj" /p:Version=$env:PackageVersion --output $outputFolder --no-build --configuration=$configuration
+       dotnet pack "$PSScriptRoot\Source\$_\$_.csproj" /p:Version=$env:PackageVersion --output $outputFolder --no-build --configuration=$configuration
    }    
 }
 
@@ -63,9 +64,9 @@ function nugetPublish{
 function buildSolution{
 
     _WriteOut -ForegroundColor $ColorScheme.Banner "Build Solution"
-    & dotnet build "$rootFolder\$solutionName.sln" /p:Configuration=$configuration /verbosity:minimal
+    & dotnet build "$PSScriptRoot\$solutionName.sln" /p:Configuration=$configuration /verbosity:minimal
 
-    #&"$rootFolder\packages\gitlink\lib\net45\GitLink.exe" $rootFolder -u $sourceUrl
+    #&"$PSScriptRoot\packages\gitlink\lib\net45\GitLink.exe" $PSScriptRoot -u $sourceUrl
 }
 
 function executeTests{

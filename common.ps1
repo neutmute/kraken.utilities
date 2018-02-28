@@ -69,7 +69,7 @@ param(
 
 }
 
-function _DownloadNuget{
+function Get-Nuget{
 param([Parameter(Mandatory=$true,Position=0)]$rootPath)
 
 	$sourceNugetExe = "https://dist.nuget.org/win-x86-commandline/v4.5.0/nuget.exe"
